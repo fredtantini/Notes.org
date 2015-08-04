@@ -1,0 +1,37 @@
+* faire le ménage
+** anciens fichiers .org
+*** supprimer redondant
+*** déplacer si doit être dans autre .org
+*** utiliser une archive si possible
+** nouveaux fichiers org
+1 heading = 1 dossier
+1 item = 1 fichier
+*** Notes 
+- notes.org
+fichier principal
+- notes-info.org
+articles, projets, raccourcis, liens, liés à l’info
+*** Prive
+- notes-travail.org
+notes relatives au boulot
+- notes-prive.org
+vie privée
+- notes-famille-prive.org
+vie privée
+- ...
+*** blog
+Dans Sites/fredtantini/blog/
+**** categorie
+***** categorie 1
+- article 1
+- article 2
+***** categorie 2
+- article 1
+- article 2
+**** statiques
+***** cheatsheet
+- article 1
+- article 2
+***** listeProjet
+***** pao
+

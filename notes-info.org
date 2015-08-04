@@ -1,0 +1,436 @@
+#+TODO: TODO(t) WAITING(w) | DONE(d!) CANCELED(c)
+#+TODO: À_ÉCRIRE(à!) COMMENCÉ(o!) EN_ATTENTE(e@) FINI(f!) | ANNULÉ(a@) PUBLIÉ(p!)
+
+* Ce fichier
+blog et projet
+** TODO Merger depuis les différents fichiers notes 
+** TODO Réflexions
+*** Ce fichier
+**** découpage
+- Entête pour explication fonctionnement du fichier
+  - réflexions sur découpage/workflow
+
+- Blog
+  - liens/snippets/lab… au sens large donc 
+
+- Projets/Dépôts
+
+- Notes à intégrer aux endroits qui vont bien
+  Des tags pour savoir où déplacer?
+  - idée de billets
+  - raccourci
+  - bout de code
+  - lien intéressant
+***** CANCELED Pour chaque, déplacer réflexion découpage à l'intérieur…
+
+***** Découpage ± identique ici avec réflexion
+-> autres points plus propres
+
+**** workflow
+
+***** TODO [#A] ajouter tag pour savoir quoi faire + priorités
+***** TODO [#A] Penser les tags et le workflow des fichiers orgs
+****** TODO A_déplacer : voir quoi faire une fois le dépot/blog créé + tag de où
+****** DONE renommer ancien blog
+****** TODO fusionner correctement old_blog with new_blog
+
+****** Utiliser [1/5] ?
+****** TODO/DONE avec parent ?
+****** tout timestamper ?
+
+***** TODO Utiliser remember sur ce fichier
+
+***** TODO Utiliser agenda sur ce fichier
+***** DONE utiliser réflexion 
+      avant de modifier structure/workflow -> les différentes solutions avec pour et contre
+****** Archiver quand réfléxion finie
+‰C-c C-x a‰
+****** si plusieurs propositions
+******* mettre en DONE la choisie
+******* CANCELED mettre en CANCELED les autres
+***** todo statut
+suivant découpage (‰C-c C-t d‰)
+****** global
+******* TODO(t) WAITING(w) | DONE(d!) CANCELED(c)
+****** blog
+******* À_ÉCRIRE(à!) COMMENCÉ(o!) EN_ATTENTE(e@) FINI(f!) | ANNULÉ(a@) PUBLIÉ(p!)
+****** projet
+****** notes
+***** tags
+suivant découpage
+****** global
+****** blog
+****** projet
+****** notes
+
+***** propriétés
+suivant découpage
+****** global
+****** blog
+****** projet
+****** notes
+
+***** local setup (général)
+
+***** quid des bouts de code/autres, mais perso ou pas à publier?
+****** DONE réfléxion à faire sur l'organisation globale            :ARCHIVE:
+******* 1
+- notes -> ce fichier
+- todolist -> privé
+- notes-perso -> privé
+******* DONE 2
+- notes-famille-prive
+- notes
+- notes-info -> ce fichier
+
+*** Blog
+**** DONE quel CMS?                                                 :ARCHIVE:
+partage avec com' / from emacs ?
+***** KB
+***** DONE pluxml
+  
+***** jenkins
+***** pelican
+***** WP
+***** oblog
+**** TODO pluxml à partir d'emacs
+***** TODO 1er temps
+‰C-c C-e C-b h r‰
+‰C-b‰ pour n'avoir que le corps de l'article
+****** TODO [#A] modifier l'export html pour mettre dans un buffer seulement
+***** TODO 2eme temps
+voir pour faire l'export dans un fichier article xml en renseignant correctement les balises
+**** Pour les billets au sens large (articles snippets)             :ARCHIVE:
+***** réflexion organisation fichier                                :ARCHIVE:
+****** ajouter un tag A_publier/En_cours/…
+sous-aile à obtenir -> on peut mettre n'importe où
+****** ajouter un tag article/snipp/…
+peut-ê les notes
+****** Mettre dans des headlines séparés
+péniblfier
+****** Utiliser des statuts TODO/DONE
+doubloles projets
+****** mix des status et tags
+****** DONE Un dossier pour article/ql/statiques +  des statuts particuliers
+- À_ÉCRIRE : une idée comme ça… ; tag du début
+- COMMENCÉ : billet commencé (+date)
+- EN_ATTENTE : parce que quelque chose cloche quelque part (+raison)
+- ANNULÉ : parce qu'obsolète… (+raison)
+- FINI : billet fini sur le papier (À publier, mais À écrire commence déjà par à) (+date)
+- PUBLIÉ : billet mis sur le site
+******* Utiliser les properties pour local au dossier
+Apparemment on peut pas -> 2 séquences
+#+BEGIN_SRC elisp
+TODO(t) | DONE(d!)
+À_ÉCRIRE(à!) COMMENCÉ(c!) EN_ATTENTE(e@) FINI(f!) | ANNULÉ(a@) PUBLIÉ(p!)
+#+END_SRC
+Et utiliser ‰C-c C-t‰
+***** réflexion organisation items                                  :ARCHIVE:
+                                
+****** Catégories
+******* nom_catégorie
+******** STATUT(À_ÉCRIRE) titre
+********* idée 1
+********* suite
+******** STATUT(COMMENCÉ) vrai titre
+[[lien vers fichier .org]]
+éventuellement une description/copie du chapô?
+****** Statiques
+******* PAO
+[[lien vers fichier .org de l'article]]
+******* Cheatsheet truc
+******** STATUT(PUBLIÉ) vrai titre
+[[lien vers fichier .org de l'article]]
+
+******* Liste projet
+[[lien vers fichier .org de l'article]]
+
+***** réflexion projets                                             :ARCHIVE:
+une fois terminés
+****** ajouter une entrée à liste de billets à faire
+****** déplacer dans Idée d'article
+****** DONE ajouter une entrée à Articles
+****** DONE tagger À écrire
+***** réflexion découpage blog                                      :ARCHIVE:
+
+- statiques
+  - cheatsheet
+    - cheatsheet emacs
+    - cheatsheet org
+    - cheatsheet python
+  - liste des projets? <= catégories projets? (non: va lister les articles)
+    - 1 seule page avec tous les projets organisés… comme on peut
+  - lab
+    - 1 seule page avec tous les labs
+  - pao
+- catégories
+  - articles
+    - diatribes
+      même si je pense pas utiliser beaucoup
+    - paremboles
+      défaut?
+    - pas de catégories
+    - guides
+      tuto
+    - snippet : idem projet
+    - lab
+    - blog
+      vie du blog
+  - projet
+    une fois un projet fini (en cours) : un article
+  - quicklink
+    - raccourci
+    - trouvaille
+      page intéressante
+    - mémo
+      note pour moi même/coude
+  - [à ajouter au fur et à mesure]
+***** réflexion tag                                                 :ARCHIVE:
+- un tag .org = un tag blog:
+  - mémo tag bash
+  - cheatsheet tag emacs
+  - trouvaille tag math, css
+
+***** réflexion lien blog-projet
+****** article (catégories)
+| catégorie         | dépot                        |
+| diatribes         | articlesBlog                 |
+| paremboles        | articlesBlog                 |
+| pas de catégories | articlesBlog                 |
+| guides            | articlesBlog (+guide?)       |
+| snippet           | articlesBlog + snippet       |
+| lab               | articlesBlog + lab           |
+| blog              | articlesBlog                 |
+| projet            | articlesBlog + dépot du projet |
+| raccourci         | articlesBlog + cheatsheet    |
+| trouvaille        | articlesBlog                 |
+| mémo              | articlesBlog                 |
+
+**** TODO choisir un beau thème
+**** TODO créer les dépôts
+**** TODO fusionner l'ancien blog…
+
+**** TODO la suite (old_blog)
+***** raf                                                          :old_blog:
+****** en profiter pour mettre une license ?
+*******  http://www.gnu.org/licenses/license-list.html#OpinionLicenses
+*******  https://github.com/renard/o-blog/tree/o-blog-v2/
+*******  C0, mais évidemment, c'est mieux si d'où ça vient…
+*******  http://draketo.de/light/english/emacs/babcore legalese
+
+
+
+****** exple de blogs avec ox :
+******* http://www.seas.upenn.edu/~heqin/academic/sitecreation.html#
+******* http://bzg.fr/blogging-from-emacs.html
+****** index
+******* 2: 1 avec readmore, 1 sans
+faire ça avec #+INCLUDE: "/data/Donnees/Sites/fredtantini/2014/03/20140308_des_raccourcis_en_vrac.org" :lines "10-" ?
+****** faire des index dans les dossiers/sous-dossiers et faire pointer up sur cet index
+******* http://orgmode.org/manual/Sources-and-destinations.html#Sources-and-destinations
+******** :preparation-function 
+******* http://orgmode.org/manual/Publishing-action.html#Publishing-action
+******* http://orgmode.org/manual/Publishing-options.html#Publishing-options
+****** theme/css
+******* http://andersnoren.se/themes/lingonberry/
+******* http://tonaldemo.wordpress.com/
+******* http://caslay.com/tiny_theme/shortcodes-preview/
+******* http://orgmode.org/worg/org-hacks.html
+******* http://thenybble.de/projects/orgsite.html
+******* http://vbrajon.fr/
+***** old idées billet                                             :old_blog:
+****** ce que j'aime
+*******  bout de code
+*******  hack
+
+****** yin/yang (rapide/modulable…)
+****** nginx ?
+
+****** Save macros as functions
+*******  http://draketo.de/light/english/emacs/babcore
+
+****** emacs can tail log files
+*******  RT @shamblepop: #Emacs can tail log files! Open read-only with C-x C-r <file> RET, then M-x auto-revert-tail-mode RET. Win!
+******* http://twitter.com/twitter/status/444044904097132544
+****** sublime text < emacs
+******* http://sametmax.com/10-astuces-pour-sublime-text-2/
+    
+****** desktop mode
+       liste des choses qu'on peut sauver, et qu'on peut tronquer
+          
+***** lab                                                          :old_blog:
+****** scroll CSS/JS
+http://blog.gospodarets.com/css-scroll-snap/
+https://github.com/peachananr/purejs-onepage-scroll
+****** FFFFFF
+       r,g,b (ou h,s,v)
+       une couleur de départ, 1 couleur d'arrivée, qu'est-ce qui a changé
+******* plusieurs modes possibles
+        qui peuvent se combiner
+******** simple
+         1 changement,  r vers haut ?
+********* moyen 2 changements, dur 3 changements
+******** donner la valeur d'arrivée, ok si moins de x, ou la différence donne x points, le but est de faire le moins de points possible
+         àla jeu géographie distance/ville
+******** avec ou sans temps
+         àla flappybird
+******* prendre code base sur https://github.com/gabrielecirulli/2048
+
+****** nbakc
+****** deluxe paint 3/flocon
+****** jeu voiture V.
+****** générateur PS1/screenrc
+****** mots/chansons
+****** tutos jeux html5
+http://www.lessmilk.com/
+
+****** html5 periodical table
+    http://websitesetup.org/html5-periodical-table/
+****** tag cloud en html5/js
+    http://www.goat1000.com/tagcanvas.php
+****** carousel javascript
+http://codepen.io/koheishingai/pen/uKvJF
+****** spiroghaphe
+http://nathanfriend.io/inspirograph/
+
+****** arc-en-ciel 1 ligne de css
+http://codepen.io/Nico_KraZhtest/pen/XbeVzM
+****** portes logiques en css
+http://silon.slaks.net/#gates
+****** timing des animations et transitions en css3
+    http://www.alsacreations.com/tuto/lire/1299-timing-des-animations-et-des-transitions-en-css3.html
+****** animate.css
+http://daneden.github.io/animate.css/
+****** du css 
+(générateurs, filter effects, snippets, demos…) http://www.cssreflex.com/
+****** exemples d'hover en css
+http://tympanus.net/Development/HoverEffectIdeas/
+http://ianlunn.github.io/Hover/
+https://github.com/gudh/ihover/blob/gh-pages/src/ihover.css
+****** fenetre modale
+http://tympanus.net/Development/ModalWindowEffects/
+****** filtres css
+http://iamvdo.me/en/blog/advanced-css-filters
+
+*** Projet
+**** réflexions organisation fichier
+Tout ce qui a un dépot
+***** nom_du_projet
+      :PROPERTIES:
+      :URL:  http://bitbucket.org/fredtantini/projet
+      :FILE: /data/Perso/Python/projet
+      :TITLE/DESCRIPTION: foobar
+      :END:      
+Notes/liens/choses sur le sujet
+**** TODO [#A] réflexions organisation site/dépots publiques
+***** articles
+-> 1 dépot BB/GH
+- articlesblog
+  - 1 dossier par catégorie
+***** lab/démos
+-> 1 dépot/thème
+- lab-css
+- lab-html
+- lab-js
+- lab-php
+***** snippets/cheatsheet
+-> 1 dépot/thème-langage de prog
+- snip-python
+- snip-django
+- snip-emacs
+- snip-bash
+- cheatsheet-bash
+- cheatsheet-foo
+https://github.com/kbroman/ProgrammingNotes
+***** CANCELED quicklinks/shaarli
+      - inclus dans articles
+
+-> pas de dépôt?
+***** CANCELED des pages statiques
+-> 1 dépot
+- liens pour css
+- liens pour emacs
+- liens pour python
+- liens vers des choses bien…
+***** dépôts individuels
+choses parlées dans les articles
+choses à tester
+- some_ex_django
+- pygal_et_musique
+- pao & mem
+***** ce fichier
+**** TODO réflexions dépôts privés
+***** notes-famille-prive
+(pour quoi faire dans la maison, l'administratif, le jardin, la «vraie» vie)
+****** TODO [#A] Penser les tags et le workflow des fichiers orgs
+****** TODO Voir comment gérer l'agenda
+      
+
+
+***** notes-prive
+
+*** CANCELED Notes
+    - State "CANCELED" fichier notes principal
+
+- Choses à lire
+- Choses à essayer/tester
+* TODO [#A] Blog
+** Catégories
+*** diatribes
+*** paremboles
+**** À_ÉCRIRE importance des commentaires (cf mail)
+
+**** À_ÉCRIRE config pour git/bit
+     À_ÉCRIRE ssh-add / script pour copier/coller, avoir les différents mails…
+*** guides
+**** À_ÉCRIRE tuto orgmode
+http://orgmode.org/worg/org-tutorials/#sec-7
+
+*** snippet
+*** lab
+*** blog
+**** À_ÉCRIRE nouvelle organisation/GTD
+***** nouveau blog toussa
+
+*** projets
+**** À_ÉCRIRE recupKDOCE                                             :projet:
+**** À_ÉCRIRE recupMem                                               :projet:
+
+*** raccourci
+*** trouvaille
+*** mémo
+*** non classé
+**** À_ÉCRIRE  TODO envoyer fichiers port056
+voir les .org dispos + faire sur cft?
+**** À_ÉCRIRE squash/soap/travail
+*** Snippets
+** Statiques
+*** Cheatsheet
+*** liste projets
+* TODO Projets
+
+** .emacs.d
+config d'emacs, custom séparé
+https://bitbucket.org/fredtantini/.emacs.d/
+
+
+* Notes
+
+** À utiliser
+une fois acquis déplacer/noter dans articles
+*** emacs
+**** Raccourcis
+‰C-x C-j‰ (=dired-jump=) Ouvre un buffer ~Dired~ et se met sur le buffer courant
+**** orgmode
+***** déplacement
+- ‰C-c C-u‰ plus haut dans l'arbre
+- ‰C-c C-n/p‰ heading suivant/précédent (même si plus haut/bas)
+- ‰C-c C-f/b‰ sibling suivant/précédent
+***** agenda
+***** remember
+***** org-goto
+
+
+** À voir
+
+
