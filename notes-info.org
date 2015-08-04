@@ -434,9 +434,13 @@ une fois acquis déplacer/noter dans articles
 ‰M-x magit-init‰
 create repository dans dossier
 ‰i‰ pour ajouter un .gitignore =*pyc= et =*~=
+‰M a‰ pour add a remote (origin/git@bitbucket.org:fredtantini/foobar.git)
+
+puis
+‰g‰ pour actualiser -> propose de sauver
 ‰s‰ sur Untracked pour sauver
 ‰c c‰ pour commit "recuperer une page" puis ‰C-c C-c‰
-‰M a‰ pour add a remote (origin/git@bitbucket.org:fredtantini/foobar.git)
+‰P P‰ pour pusher sur origin/master
 
 ** À voir
 
