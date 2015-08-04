@@ -430,6 +430,13 @@ une fois acquis déplacer/noter dans articles
 ***** remember
 ***** org-goto
 
+**** magit
+‰M-x magit-init‰
+create repository dans dossier
+‰i‰ pour ajouter un .gitignore =*pyc= et =*~=
+‰s‰ sur Untracked pour sauver
+‰c c‰ pour commit "recuperer une page" puis ‰C-c C-c‰
+‰M a‰ pour add a remote (origin/git@bitbucket.org:fredtantini/foobar.git)
 
 ** À voir
 
