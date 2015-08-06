@@ -1,5 +1,5 @@
 #+TODO: TODO(t) WAITING(w) | DONE(d!) CANCELED(c)
-#+TODO: À_ÉCRIRE(à!) COMMENCÉ(o!) EN_ATTENTE(e@) FINI(f!) | ANNULÉ(a@) PUBLIÉ(p!)
+#+TODO: À_ÉCRIRE(à) COMMENCÉ(o) EN_ATTENTE(e@) FINI(f) | ANNULÉ(a@) PUBLIÉ(p!)
 
 * Ce fichier
 blog et projet
@@ -396,8 +396,8 @@ http://orgmode.org/worg/org-tutorials/#sec-7
 **** À_ÉCRIRE recupKDOCE                                             :projet:
 **** À_ÉCRIRE recupMem                                               :projet:
 
-*** raccourci
-*** trouvaille
+*** raccourcis
+*** trouvailles
 *** mémo
 *** non classé
 **** À_ÉCRIRE  TODO envoyer fichiers port056
@@ -406,7 +406,11 @@ voir les .org dispos + faire sur cft?
 *** Snippets
 ** Statiques
 *** Cheatsheet
+**** À_ÉCRIRE emacs
+à découper
 *** liste projets
+*** lab
+**** css
 * TODO Projets
 
 ** .emacs.d
