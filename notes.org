@@ -1,17 +1,17 @@
 * faire le ménage
-** anciens fichiers .org
-*** supprimer redondant
+** TODO anciens fichiers .org
+*** supprimer redondance
 *** déplacer si doit être dans autre .org
-*** utiliser une archive si possible
-** nouveaux fichiers org
+*** utiliser un archive si possible?
+** TODO nouveaux fichiers org
 1 heading = 1 dossier
 1 item = 1 fichier
-*** Notes 
+*** DONE notes 
 - notes.org
 fichier principal
 - notes-info.org
 articles, projets, raccourcis, liens, liés à l’info
-*** Prive
+*** DONE prive
 - notes-travail.org
 notes relatives au boulot
 - notes-prive.org
@@ -19,8 +19,16 @@ vie privée
 - notes-famille-prive.org
 vie privée
 - ...
-*** blog
-Dans Sites/fredtantini/blog/
+*** TODO [#A] blog 
+Dans Sites, éviter les doublons, possible de faire des dossiers dans plux?
+-> osef, les .org sont justes la base des articles -> oui, garder:
+- data
+  article1
+  article2
+  - 2015
+    - 08
+      article1.org
+      article1.org.html (ici?)
 **** categorie
 ***** categorie 1
 - article 1
@@ -34,4 +42,538 @@ Dans Sites/fredtantini/blog/
 - article 2
 ***** listeProjet
 ***** pao
+* À voir
+** À regarder
+*** Mr. Robot
+*** Sense8
+** À lire
+* À utiliser
+une fois acquis déplacer/noter dans articles
+** emacs
+*** général
+- ‰C-x 4 c‰ (https://www.gnu.org/software/emacs/manual/html_node/emacs/Indirect-Buffers.html)
+  Create an indirect buffer that is a twin copy of the current buffer, and select it in another window
+- ‰C-x r …‰ registres
+*** magit
+‰M-x magit-init‰
+create repository dans dossier
+‰i‰ pour ajouter un .gitignore =*pyc= et =*~=
+‰M a‰ pour add a remote (origin/git@bitbucket.org:fredtantini/foobar.git)
+puis
+‰g‰ pour actualiser -> propose de sauver
+‰s‰ sur Untracked pour sauver
+‰c c‰ pour commit "recuperer une page" puis ‰C-c C-c‰
+‰P P‰ pour pusher sur origin/master
+
+*** orgmode
+**** déplacement
+- ‰C-c C-u‰ plus haut dans l'arbre
+- ‰C-c C-n/p‰ heading suivant/précédent (même si plus haut/bas)
+- ‰C-c C-f/b‰ sibling suivant/précédent
+**** édition
+- ‰C-c C-x C-w‰ coupe le sous-arbre
+- ‰C-c C-x C-y‰ colle le sous-arbre suivant le niveau autour
+- ‰C-c C-x b‰     (org-tree-to-indirect-buffer)
+
+**** agenda
+**** capture
+**** archiving
+http://orgmode.org/org.html#Archiving
+  - déplacer dans un dossier archive (‰CcCxA‰)
+  - ‰CuCcCxa‰ check tous les children qui n'ont pas de todo!
+
+**** org-refile (‰C-u C-c C-w‰)
+**** remember
+avec template
+**** org-goto (‰C-c C-j‰) 
+http://orgmode.org/org.html#Motion
+**** org-toodledo
+    https://github.com/christopherjwhite/org-toodledo
+**** searching
+http://orgmode.org/worg/org-tutorials/advanced-searching.html
+**** setting
+http://orgmode.org/org.html#In_002dbuffer-settings
+- properties
+- category
+Setting org-catch-invisible-edits to non-nil (http://orgmode.org/org.html#Catching-invisible-edits)
+(setq org-refile-targets '((org-agenda-files . (:maxlevel . 6))))
+
+*** deft
+*** helm
+*** ido
+*** magit
+** gtd/pomodoro
+*** Des liens
+**** Venu par la lecture de 
+     https://medium.com/dev-notes/la-technique-pomodoro-c00603da47f9
+**** site officel
+     http://pomodorotechnique.com/
+**** Recherche avec emacs
+***** http://www.agilesoc.com/2011/08/08/emacs-org-mode-kanban-pomodoro-oh-my/
+***** http://www.emacswiki.org/emacs/pomodoro
+***** http://headhole.org/organisation/2012/08/22/org-mode-gtd-and-the-pomodoro-technique/
+***** http://theadmin.org/articles/pomodoro-emacs-with-orgmode/
+***** fcouchet
+****** http://www.couchet.org/blog/index.php?post/2010/08/04/Pomodoro-et-org-mode
+****** http://www.couchet.org/blog/index.php?post/2010/02/20/Sur-la-route-de-Pomodoro
+****** http://www.couchet.org/20110412-lille/
+****** http://www.couchet.org/20110412-lille/gtd-ztd-org-mode.pdf
+***** http://orgmode.org/worg/org-gtd-etc.html
+**** ztd http://www.habitudes-zen.fr/2009/zen-to-done-ztd-lultime-systeme-simple-de-productivite/
+***** recueillir
+****** idéalement, dans emacs, voir pour prendre un carnet
+***** scruter
+****** ne pas attendre pour prendre une note, lire un mail… si ça prend moins de 2 minutes
+***** planifier
+****** programmer Most Important Tasks pour la semaine, gros galets pour la journée
+***** faire
+****** 1 tâche à la fois
+avec pomodoro?
+***** Système de confiance simple
+****** listes séparées simples, à vérifier chaque jour
+***** organiser
+****** répartir les notes «receuillir» dans ces listes
+***** examire
+****** examiner système et objectifs chaque semaine
+***** simplifier
+****** réduire objectifs et tâches pour garder que les plus importantes
+***** Routine
+****** définir et conserver des routine
+*** Mise en place
+**** Commencer doucement:
+***** planifier 3 most important tasks chaque semaine -> 25/50 min
+***** planifier le gros de la journée chaque jour -> 25 min
+***** veille
+****** 1 scéance maison par jour pour dépiler flux rss -> ajout de notes à lire
+****** 1 scéance de lecture des choses notées à partir des «à lire» -> ajout d'autres «à lire»
+* À trier plus
+** Info
+*** emacs                                                                :QL:
+**** http://sachachua.com/blog/2015/02/learn-take-notes-efficiently-org-mode/
+**** http://irreal.org/blog/?p=3730
+**** http://irreal.org/blog/?p=3726
+
+**** citation Emacs/vegan
+**** https://twitter.com/timotm/status/446633786797588480
+**** OH @eagleflo: "#Emacs is the vegan option - too much hassle for most people but those using it can't shut up about it"
+**** à lire : overlays
+***** http://www.gnu.org/software/emacs/manual/html_node/elisp/Managing-Overlays.html#Managing-Overlays
+****** http://www.gnu.org/software/emacs/manual/html_node/elisp/Text-Properties.html#Text-Properties
+****** https://github.com/ShingoFukuyama/ov.el#ovel-
+**** à lire http://www.fclose.com/5407/making-emacs-startup-faster/
+**** configurer son mode-line
+***** http://shibayu36.hatenablog.com/entry/2014/04/01/094543
+**** à lire : les options que l’on peut mettre dans #+BEGIN_... (-n -r)
+***** http://orgmode.org/manual/Literal-examples.html#fn-3
+**** les évolutions de org-mode:
+***** http://orgmode.org/Changes.html
+***** http://orgmode.org/Changes_old.html
+**** prettify-symbols-mode
+pour avoir par exemple des λ quand on tape lambda ou des ≤ quand on tape <= (voir l’aide de la fonction)
+***** https://github.com/drothlis/pretty-symbols
+**** exemple de =modify-syntax-entry=
+***** http://stackoverflow.com/a/1772365/3336968
+***** http://www.emacswiki.org/emacs/EmacsSyntaxTable
+***** http://www.lunaryorn.com/2014/03/12/syntactic-fontification-in-emacs.html
+**** des registres interactifs (àla ido)
+***** http://www.reddit.com/r/emacs/comments/22ssyg/interactive_register_commands_for_emacs/
+**** [[http://stackoverflow.com/questions/1706157/in-emacs-how-do-i-figure-out-which-package-is-loading-tramp][In Emacs How Do I Figure Out Which Package Is Loading Tramp]]
+réponse :
+#+BEGIN_SRC elisp
+(eval-after-load "tramp"
+  '(debug))
+#+END_SRC
+**** set-mark-command-repeat-pop
+***** https://twitter.com/themathiasdahl/status/455651528322584576.
+#+BEGIN_QUOTE
+If you use C-u C-SPC to pop mark, check out the option
+set-mark-command-repeat-pop. Then you do only C-SPC after an initial
+pop. #emacs
+#+END_QUOTE
+**** http://www.reddit.com/r/emacs/comments/230ali/orglike_editor_in_html5_nice_as_a_start_page
+***** http://clearly.pl/toto ?
+**** 24.4
+C-x SPC -> kill-yank.. easy
+New command `C-x C-k x' (`kmacro-to-register') stores keyboard macros in registers.
+superword-mode
+***** snip emacs                                                    :QL:snip:
+**** DONE M-x whitespace-cleanup
+**** TODO visual-regexp 
+comme replace-regexp, mais avec des couleurs pour chaque partie de la regexp
+***** http://www.emacswiki.org/emacs/VisualRegexp
+***** https://github.com/benma/visual-regexp.el
+**** DONE `whitespace-cleanup' (whitespace.el)
+**** TODO auto-revert-tail-mode pour simuler tail -f
+***** voir aussi http://www.emacswiki.org/emacs/TrackChanges 
+***** et highlight-changes-mode code-review
+**** TODO god-mode
+un appui sur ESC pour passer de C-a C-k C-n C-y à akny, de M-f M-f M-f à gf.., etc.
+***** https://github.com/chrisdone/god-mode
+**** ibuffer-fontification-alist
+***** exemple dans :https://raw.githubusercontent.com/avar/dotemacs/master/.emacs
+***** depuis : http://www.reddit.com/r/emacs/comments/21fjpn/fontifying_buffer_list_for_emacs_243/
+**** DONE deleteblank when saving
+***** https://github.com/jaseemabid/emacs.d/blob/master/init.el#L487
+**** remember tramp connection
+***** https://github.com/jaseemabid/emacs.d/commit/817829640db031019cde79e7fc6f531ea42a2b22
+**** TODO fancy-narrow
+comme narrow, mais au lieu de supprimer le texte, le grise
+***** https://github.com/Bruce-Connor/fancy-narrow
+**** org-protocol
+***** http://www.marshut.com/isriwm/org-protocol-title.html
+**** M-l/u/c marche aussi avec un argument négatif
+***** https://www.gnu.org/software/emacs/manual/html_node/emacs/Fixing-Case.html#Fixing-Case
+**** options pour comment indenter le C
+***** http://www.emacswiki.org/emacs/IndentingC
+**** org-mode : comment supprimer certains markup
+***** http://stackoverflow.com/questions/22491823/disable-certain-org-mode-markup/22493885#22493885
+**** manipuler les overlay facilement
+***** https://github.com/ShingoFukuyama/ov.el#ovel-
+**** TODO gérer les minor modes facilement
+***** https://github.com/ShingoFukuyama/manage-minor-mode
+**** TODO which-function-mode pour afficher le nom de la fonction dans l'info
+***** http://emacsredux.com/blog/2014/04/05/which-function-mode/
+**** paredit-split/join-sexp pour passer de (foo bar) à (foo) (bar) ou "hello world" à "hello" "world"
+***** http://www.emacswiki.org/emacs/PareditCheatsheet 
+**** pretty printing le résultat d'une expression
+***** https://github.com/steckerhalter/ipretty
+**** TODO major mode pour html + block "php/jsp/template"
+***** http://web-mode.org/
+**** indirect buffer permet de faire du narrow sur différentes régions
+***** http://demonastery.org/2013/04/emacs-narrow-to-region-indirect/
+**** TODO rainbow-deliminators.el parenthèses/crochets/… en couleur pour savoir où on en est
+***** http://www.emacswiki.org/emacs/RainbowDelimiters
+**** TODO Kill & Mark Things Easily in Emacs
+***** https://github.com/leoliu/easy-kill
+**** TODO afficher les suites possibles d'un raccourci (plutôt que de faire C-h)
+***** https://github.com/kbkbkbkb1/guide-key
+**** TODO keychord pour lancer une commande quand on appuie sur 2 touches en même temps
+***** http://www.emacswiki.org/emacs/KeyChord
+***** http://www.reddit.com/r/emacs/comments/22hzx7/what_are_your_keychord_abbreviations/
+**** TODO company mode : COMPlete ANYthing «popup qui affiche les complétions possibles»
+***** http://www.emacswiki.org/emacs/CompanyMode
+***** http://company-mode.github.io/
+**** conversion en masse via un makefile
+***** https://github.com/abo-abo/make-it-so
+**** TODO export org-mode: possible en asynchrone
+***** http://orgmode.org/manual/The-Export-Dispatcher.html
+**** TODO impatient mode : voir le changement dans le navigateur dès qu'on tape
+***** https://github.com/netguy204/imp.el
+**** liens dans org-mode
+***** abbreviations
+****** [\[linkword:tag]\[description]] avec linkword dans org-link-abbrev-alist %s remplacé par le tag
+****** #+LINK: google    http://www.google.com/search?q=%s pour dans 1 seul buffer -> [\[google:foobar]]
+****** http://orgmode.org/manual/Link-abbreviations.html#Link-abbreviations
+***** search option
+       [[file:~/code/main.c::255]] ligne
+       [[file:~/xx.org::My Target]] <<target
+       [[file:~/xx.org::*My Target]] header
+       [[file:~/xx.org::#my-custom-id]] lien avec propriété CUSTOM_ID
+       [[file:~/xx.org::/regexp/]] occur / org-occur
+****** http://orgmode.org/manual/Search-options.html#Search-options
+***** radio target
+****** For example, a target ‘<<<My Target>>>’ causes each occurrence of ‘My Target’ in normal text to become activated as a link. (en faisant un C-c C-c).
+****** http://orgmode.org/manual/Radio-targets.html#Radio-targets
+***** snip bash                                                     :QL:snip:
+**** C-M-e : remplace l'alias avant de l'exécuter
+***** http://stackoverflow.com/questions/22612627/print-terminal-alias-command-as-well-as-executing-it
+***** emacs pour débutants                                        :Statiques:
+des liens pour ceux qui débutent
+**** http://www.emacswiki.org/
+***** http://www.emacswiki.org/emacs/EmacsNiftyTricks
+**** https://github.com/rdallasgray/graphene
+**** https://github.com/technomancy/better-defaults
+**** https://github.com/bbatsov/prelude
+**** http://wikemacs.org/index.php/Main_Page (http://wikemacs.org/index.php/Emacs_Terminology)
+**** http://emacs.sexy/img/How-to-Learn-Emacs-v2-Large.png
+**** http://www.braveclojure.com/basic-emacs/
+**** http://batsov.com/articles/2011/11/30/the-ultimate-collection-of-emacs-resources/
+**** http://www.emacswiki.org/emacs/EmacsScreencasts
+*****  http://blog.desdelinux.net/crear-un-screenshot-o-screencast-en-gif/
+*****  https://www.google.com/search?q=gif+screencast+type
+*****  http://www.reddit.com/r/emacs/comments/1yu2j0/generating_gifs_showing_emacs_features/
+*****  http://draketo.de/light/english/emacs/org-screenshot-inline
+**** update de la configs 23/24
+***** config
+******  (setq scroll-step 1)
+******  (setq scroll-conservatively 100000
+******  (global-set-key (kbd "<f2>") 'find-function)
+******  (scroll-bar-mode 0)
+******  (tool-bar-mode 0)
+******  (menu-bar-mode 0)
+**** des templates pour C-c r
+
+*** idées projets/code                                        :articles_blog:
+**** https://demo.cozycloud.cc/#home
+**** http://jeux.developpez.com/tutoriels/tile-mapping-construction-niveau/
+**** http://devfiles.myopera.com/articles/649/example5.html deluxepaint 3 flocon
+**** http://www.kde.org/applications/games/ktuberling/development
+**** http://root.suumitsu.eu/links/?vMyatQ Random-Imgur-Wall
+
+*** emacs comme ide pour Python                                   :Statiques:
+Des configs emacs pour python
+http://www.kurup.org/blog/2012/10/24/emacs-for-python-programming/ (ou je découvre https://github.com/pinard/Pymacs)
+http://www.saltycrane.com/blog/2010/05/my-emacs-python-environment/
+https://github.com/gabrielelanaro/emacs-for-python
+http://www.enigmacurry.com/2008/05/09/emacs-as-a-powerful-python-ide/
+**** modes emacs utiles pour plein de gens et donc à regarder, pas forcément que pour python
+***** [[https://github.com/proofit404/anaconda-mode][anaconda-mode (github)]]
+Code navigation, documentation lookup and completion for Python.
+***** [[https://github.com/auto-complete/auto-complete][auto-complete-mode (github.com)]]
+Auto-Complete is an intelligent auto-completion extension for Emacs. It extends the standard Emacs completion interface and provides an environment that allows users to concentrate more on their own work.
+Les gens semblent quand même préférer company-mode
+***** [[https://github.com/capitaomorte/autopair][autopair (github.com)]]
+Autopair is an extension to the Emacs text editor that automatically pairs braces and quotes
+***** [[http://cedet.sourceforge.net/][cedet (sourceforge)]]
+CEDET is a Collection of Emacs Development Environment Tools written with the end goal of creating an advanced development environment in Emacs. 
+Installé sur emacs ≥ 23.2
+***** [[http://company-mode.github.io/][company-mode (github.io)]]
+Company is a text completion framework for Emacs. The name stands for "complete anything". It uses pluggable back-ends and front-ends to retrieve and display completion candidates.
+***** [[https://github.com/alexott/ecb][ecb (github.com)]]
+This package contains a code browser for several programming-languages for (X)Emacs.
+Installé sur emacs ≥ 23.2
+***** [[https://github.com/jorgenschaefer/elpy][elpy (github.com)]]
+Emacs Python Development Environment
+Nécessite d’installer : jedi ou rope ; flake8 ; importmagic
+Utilise rope ou jedi, company-mode, highlight-indentation, yasnippet, eldoc, python.el, find-file-in-project, idomenu, ido’s completion, pydoc, flymake, pyvenv
+***** [[https://github.com/flycheck/flycheck][flycheck (github.com)]][[http://www.flycheck.org/][(home)]]
+Flycheck is a modern on-the-fly syntax checking extension for GNU Emacs 24, intended as replacement for the older Flymake extension which is part of GNU Emacs.
+***** [[http://www.emacswiki.org/emacs/FlySpell][flyspell (emacswiki)]]
+Flyspell enables on-the-fly spell checking in Emacs by the means of a minor mode. It is called Flyspell. This facility is hardly intrusive. It requires no help. Flyspell highlights incorrect words as soon as they are completed or as soon as the TextCursor hits a new word.
+part of Emacs
+***** [[https://github.com/tkf/emacs-jedi][jedi.el (github.com)]] 
+Jedi.el is a Python auto-completion package for Emacs. It aims at helping your Python coding in a non-destructive way. It also helps you to find information about Python objects, such as docstring, function arguments and code location.
+***** [[https://github.com/magit/magit][magit (github)]]
+Magit is an interface to the version control system Git, implemented as an Emacs package. Magit aspires to be a complete Git porcelain. While we cannot (yet) claim, that Magit wraps and improves upon each and every Git command, it is complete enough to allow even experienced Git users to perform almost all of their daily version control tasks directly from within Emacs. While many fine Git clients exist, only Magit and Git itself deserve to be called porcelains. 
+***** [[https://github.com/davidmiller/pony-mode][pony-mode (github.com)]]
+A Django mode for emacs.
+***** [[https://github.com/bbatsov/projectile][projectile (github.com)]]
+Projectile is a project interaction library for Emacs. Its goal is to provide a nice set of features operating on a project level without introducing external dependencies(when feasible). For instance - finding project files has a portable implementation written in pure Emacs Lisp without the use of GNU find (but for performance sake an indexing mechanism backed by external commands exists as well).
+***** [[https://github.com/fgallina/python-django.el][python-django.el (github.com)]]
+A Jazzy package for managing Django projects.
+Nécessite https://github.com/fgallina/python.el ou emacs ≥ 24.3
+***** [[https://github.com/tkf/emacs-python-environment][python-environment (github.com)]]
+Python virtualenv API for Emacs Lisp
+***** [[https://github.com/jorgenschaefer/pyvenv][pyvenv (github.com)]]
+This is a simple global minor mode which will replicate the changes done by virtualenv activation inside Emacs.
+***** [[https://github.com/python-rope/ropemacs][ropemacs (github.com)]]
+Ropemacs is an emacs mode that uses rope library to provide features like python refactorings and code-assists.
+Nécessite rope et pymacs
+***** [[https://github.com/Fuco1/smartparens][smartparens (github.com)]]
+Smartparens is minor mode for Emacs that deals with parens pairs and tries to be smart about it. It started as a unification effort to combine functionality of several existing packages in a single, compatible and extensible way to deal with parentheses, delimiters, tags and the like. 
+***** [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Speedbar.html][speedbar (gnu.org)]]
+The speedbar is a special frame for conveniently navigating in or operating on another frame
+***** [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Tags.html][Tags (gnu.org)]]
+***** [[https://github.com/aculich/virtualenv.el][virtualenv (github.com)]]
+À remplacer par pyvenv, virtualenvwrapper ou python-environment
+***** [[https://github.com/porterjamesj/virtualenvwrapper.el][virtualenvwrapper (github.com)]]
+A featureful virtualenv tool for Emacs. Emulates much of the functionality of Doug Hellmann's virtualenvwrapper.
+***** [[https://github.com/abingham/emacs-ycmd][ymcd-mode (github.com)]]
+emacs-ycmd is a client for ycmd, the code completion system. It takes care of managing a ycmd server and fetching completions from that server.
+**** outils python 
+***** [[https://gitlab.com/pycqa/flake8][flake8 (gitlab)]]
+flake8 is a python tool that glues together pep8, pyflakes, mccabe, and third-party plugins to check the style and quality of some python code.
+***** [[https://github.com/alecthomas/importmagic][importmagic (github.com)]]
+A Python library for finding unresolved symbols in Python code, and the corresponding imports
+***** [[http://ipython.org/][ipython (home)]]
+IPython provides a rich architecture for interactive computing
+***** [[https://pypi.python.org/pypi/jedi][jedi (pypi)]] 
+An autocompletion tool for Python that can be used for text editors.
+***** [[https://github.com/pypa/pip][pip (github.com)]]
+The PyPA recommended tool for installing Python packages
+***** [[https://github.com/pyflakes/pyflakes/][pyflakes (github.com)]]
+A simple program which checks Python source files for errors.
+Pyflakes analyzes programs and detects various errors. It works by parsing the source file, not importing it, so it is safe to use on modules with side effects. It's also much faster.
+***** [[https://github.com/python-rope/rope][rope (github.com)]]
+a python refactoring library
+***** [[https://pypi.python.org/pypi/virtualenv][virtualenv (pypi)]]
+``virtualenv`` is a tool to create isolated Python environments.
+***** [[https://bitbucket.org/dhellmann/virtualenvwrapper/][virtualenvwrapper (bitbucket.org)]]
+virtualenvwrapper is a set of extensions to Ian Bicking's virtualenv tool. The extensions include wrappers for creating and deleting virtual environments and otherwise managing your development workflow, making it easier to work on more than one project at a time without introducing conflicts in their dependencies.
+***** [[https://github.com/Valloric/ycmd][ycmd (github.com)]]
+A code-completion & comprehension server
+**** les tests python
+***** [[https://docs.python.org/2/library/unittest.html][unittest (module)]]
+***** [[http://pytest.org/latest/][pytest (home)]]
+***** [[https://pypi.python.org/pypi/unittest2][unittest2 (pypi)]]
+***** [[https://docs.python.org/2/library/doctest.html][doctest (module)]]
+***** [[https://docs.python.org/3/library/unittest.mock.html][unitest.mock (module)]]
+***** [[https://pypi.python.org/pypi/mock][mock (pypi)]]
+***** [[http://nose.readthedocs.org/en/latest/][nose (readthedocs)]]
+***** [[http://nose2.readthedocs.org/en/latest/][nose2 (readthedocs)]]
+***** [[http://testrun.org/tox/latest/][tox (home)]]
+***** [[https://code.google.com/p/pymox/][mox (code.google.com)]]
+***** [[https://github.com/dag/attest][attest (github.com)]]
+***** [[http://lettuce.it/][lettuce (home)]]
+***** web
+****** [[http://twill.idyll.org/][twill (home)]]
+****** [[https://webtest.readthedocs.org/en/latest/][webtest (readthedocs)]]
+****** [[http://www.seleniumhq.org/][selenium (home)]]
+****** [[http://www.getwindmill.com/][windmill (home)]]
+****** [[http://mechanicalcat.net/tech/webunit/][webunit (home)]]
+****** [[https://pypi.python.org/pypi/splinter][splinter (pypi)]]
+**** intégration continue/coverage
+***** [[http://travis-ci.org][travis-ci]]
+***** [[http://corevalls.io][corevalls]]
+***** [[https://bitbucket.org/ned/coveragepy][coverage.py (bitbucket)]]
+*** crudrest                                                         
+**** http://ddg.gg/?q=django+rest+python+!g
+**** http://www.django-rest-framework.org/tutorial/quickstart/
+**** http://gotofritz.net/blog/weekly-challenge/restful-python-api-bottle
+**** http://www.pythondiary.com/tutorials/simple-crud-app-django.html
+**** http://apprendre-python.com/page-django-rest-framework-drf-cours-tuto-tutoriel-exemples
+**** http://larlet.fr/david/biologeek/archives/20070501-developper-une-application-restful-avec-django/
+**** http://www.bortzmeyer.org/rest-sql-unicode-exemple.html
+**** http://docs.webob.org/en/latest/do-it-yourself.html             
+*** django+test                                                      :projet:
+http://chimera.labs.oreilly.com/books/1234000000754/pr04.html
+
+*** firefox extensions
+**** mouse gesture
+HGH
+BGB
+HBD
+DB
+*** avoir des idées d'articles                                         :idee:
+**** Lectures du jour
+idée : ce qu'on lit et qu'on trouve intéressant, on ne le bookmark pas, mais on le partage en disant pquoi c'est bien ?
+org-mode souhaité
+***** sol possibles
+- shaarli 
+  + fction export org-mode
+- org-mode
+  - publier le soir
+  + faire un tri plus fin
+recopier/sauver l'article en demandant -> contacter + remercier
+- shaarli puis exporte «du jour» (ou plutôt depuis) en fichier org
+**** Actions informatiques du jour
+***** un pb, comment je l'ai abordé, la solution.
+- peut être simple :
+  - raccourcis emacs utilisés pour résoudre un pb, noter un truc
+    - dump de C-h l ?
+  - script bash tt bête, etc.
+  - suite à lecture tuto
+- plus compliqué
+  - faire un article ? pour détailler comment c'est pensé
+***** ce que j'ai découvert
+- raccourcis/fonction emacs
+**** Traductions d'article
+**** code completion/info sur definition/vers un IDE
+auto-complete http://cx4a.org/software/auto-complete/ autocompletion
+cedet http://alexott.net/en/writings/emacs-devenv/EmacsCedet.html The CEDET package is a collection of libraries, that implement different commands, but all of them have common goal  — provide functionality for work with source code written in different programming languages
+etags (M-.) construit une table qui permet de naviguer vers définition de fonctions, etc. http://www.emacswiki.org/emacs/EmacsTags https://www.gnu.org/software/emacs/manual/html_node/eintr/etags.html https://www.gnu.org/software/emacs/manual/html_node/emacs/Tags.html#Tags http://www.jayconrod.com/posts/36/emacs-etags-a-quick-introduction http://blog.chmouel.com/2009/07/03/update-emacsvim-tags-with-inotify/
+yasnippet http://www.emacswiki.org/emacs/Yasnippet https://github.com/capitaomorte/yasnippet écriture de squelettes
+flymake http://www.emacswiki.org/emacs/FlyMake vérification de code à la volée
+imenu http://www.emacswiki.org/emacs/ImenuMode naviguer dans le buffer : M-x imenu-add-menubar-index -> dans le menu apparait Index (marche pour org-mode !) ou M-x imenu, puis tab pour la liste (sinon, M-x imenu-add-to-menubar puis un nom, qui remplacera «Index» dans la menubar)
+semantic https://www.gnu.org/software/emacs/manual/html_node/emacs/Semantic.html provide search, navigation, and completion commands that are powerful and precise. https://www.gnu.org/software/emacs/manual/html_node/semantic/index.html
+speedbar
+http://www.gnu.org/software/global/ ? source code tagging system, comme etag, mais indépendant du navigateur. Voir aussi https://github.com/OpenGrok/OpenGrok/wiki/Comparison-with-Similar-Tools
+http://ecb.sourceforge.net/ "Emacs Code Browser" http://ecb.sourceforge.net/screenshots/index.html speedbar, treewindows, compilerwindows, liste des fonctions...
+http://www.gnu.org/software/idutils/
+http://stackoverflow.com/questions/750267/emacs-tab-completion-of-local-python-variables http://stackoverflow.com/a/750721 http://stackoverflow.com/a/765390
+projectile https://github.com/bbatsov/projectile toggle between code and its test, kill all project buffers, replace in project, grep in project...
+elisp :
+C-h f / C-h v
+eldoc  http://www.emacswiki.org/emacs/ElDoc (shows you, in the echo area, the argument list of the function call you are currently writing) + supporté dans certains modes
+http://stackoverflow.com/questions/7022898/emacs-autocompletion-in-emacs-lisp-mode 
+C http://www.emacswiki.org/emacs/CScopeAndEmacs
+python https://github.com/jorgenschaefer/elpy/wiki/Features (rope, jedi...)
+javascript http://blog.deadpansincerity.com/2011/05/setting-up-emacs-as-a-javascript-editing-environment-for-fun-and-profit/ bien détaillé, qui reprend autocomplete et utilise également flymake-jslint, code folding, javascrit console, yasnippet
+***** examples
+http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
+http://www.enigmacurry.com/2008/05/09/emacs-as-a-powerful-python-ide/
+http://www.obsidianrook.com/perlnow/emacs_as_perl_ide.html
+http://www.logilab.org/blogentry/173886
+http://truongtx.me/2013/03/10/emacs-setting-up-perfect-environment-for-cc-programming/
+http://nsaunders.wordpress.com/2009/11/18/turn-emacs-into-an-ide/
+**** startup
+https://duckduckgo.com/?q=understand+emacs+startup+load+unnecessary
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Entering-Emacs.html
+http://tychoish.com/documentation/managing-emacs-configuraiton-and-lisp-systems/
+http://a-nickels-worth.blogspot.fr/2007/11/effective-emacs.html
+https://encrypted.google.com/search?hl=en&q=understand%20emacs%20startup%20load%20unnecessary
+**** a voir
+https://en.wikipedia.org/wiki/Homoiconicity
+header-line-format variable, the same as mode-line-format
+(require 'paren)
+(setq show-paren-style 'parenthesis)
+(show-paren-mode +1)
+ Show Paren Delay + grand, mais Show Paren Style: Value Menu expression
+https://github.com/Fuco1/smartparens : Some of these packages include autopair, textmate, wrap-region, electric-pair-mode, paredit and others
+paredit http://www.emacswiki.org/emacs/ParEdit
+http://www.emacswiki.org/emacs/HighlightTemporarily
+C-h a ≠ M-x apropos !!!!!
+(or standard-display-table (setq standard-display-table (make-display-table)))
+(aset standard-display-table ?\f (vconcat "\n" (make-vector 78 ?-) "^L\n"))
+https://github.com/technomancy/better-defaults/blob/master/better-defaults.el
+http://www.emacswiki.org/emacs/HippieExpand
+http://www.dr-qubit.org/emacs.php#undo-tree-docs
+http://www.emacswiki.org/emacs/UndoTree
+https://github.com/xaccrocheur/kituu/blob/master/.emacs
+magit
+magit-tramp https://github.com/sigma/magit-tramp
+https://github.com/victorhge/iedit
+https://github.com/magnars/multiple-cursors.el
+https://linuxfr.org/users/philippemc/journaux/emacs-24-toute-resistance-est-inutile#comment-1485777
+smex M-x àla ido
+http://jblevins.org/projects/deft/
+zenburn-theme
+js2-mode
+flx-ido
+https://github.com/lewang/flx
+https://github.com/emacs-helm/helm/wiki
+http://www.emacswiki.org/emacs/ELPA repository, eval after load etc.
+mmm-mode multiple-major-mode coexistant http://www.emacswiki.org/emacs/MmmMode
+https://github.com/tkf/emacs-ipython-notebook
+http://common-lisp.net/project/slime/
+(global-)linum-mode
+****** mettre les customize séparément
+tip 7 de http://a-nickels-worth.blogspot.fr/2007/11/effective-emacs.html 
+****** profiler le init
+http://www.emacswiki.org/emacs/ProfileDotEmacs
+****** autoload
+http://stackoverflow.com/questions/4189159/emacs23-elisp-how-to-properly-autoload-this-library
+http://stackoverflow.com/questions/6886643/file-extension-hook-in-emacs
+http://emacswiki.org/emacs/AutoLoad
+http://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Autoload
+****** eval-after-load
+http://stackoverflow.com/a/6162490
+http://www.gnu.org/software/emacs/manual/html_node/elisp/Hooks-for-Loading.html
+****** load fonction dans un mode
+http://stackoverflow.com/a/5059383
+http://stackoverflow.com/questions/3674637/enabling-certain-emacs-modes-or-features-almost-always
+****** demarrer le daemon et utiliser le client
+     http://stackoverflow.com/a/4189193
+****** python ide
+http://pedrokroger.net/2010/07/configuring-emacs-as-a-python-ide-2/
+****** decoupage .c a gauche .h a droite
+http://stackoverflow.com/questions/1002091/how-to-force-emacs-not-to-display-buffer-in-a-specific-window/1002172#1002172
+****** comment marche le démarrage
+http://www.gnu.org/software/emacs/manual/html_node/elisp/Startup-Summary.html
+** Passer indep                                                       :prive:
+*** prix
+http://user23.net/dev/dev/pricing.html
+*** à voir
+**** http://spiraledigitale.com/
+**** Bluemind ->savoir faire linux
+*****  http://blue-mind.net/partenaires/article/partenaires
+*****  http://www.objectif-libre.com/fr/catalogue-des-formations-linux-et-logiciels-libres
+
+** Mémoire
+*** Cavalier
+**** anglais
+***** http://frezcogames.com/Knights_Tour.php : les yeux fermés
+***** http://borderschess.org/KTclosed.htm
+http://borderschess.org/alt-kt_tours_frame.htm
+***** http://www.wikiwand.com/en/George_Koltanowski#/Blindfold_Knight.27s_Tour
+***** http://www.chess.com/blog/kurtgodden/a-tour-of-the-knights-tour
+13,267,364,410,532 knight tours on a chessboard. http://oeis.org/A001230
+***** http://www.mayhematics.com/t/t.htm complet!!!
+****** http://www.mayhematics.com/t/1n.htm intro
+***** http://mathworld.wolfram.com/KnightGraph.html wolphram 
+***** http://classes.bnf.fr/echecs/pedago/antho/09.htm
+GO échec Pérec (http://classes.bnf.fr/echecs/pedago/antho/09.htm)
+**** francais
+***** https://duckduckgo.com/?q=r%C3%A9soudre+probl%C3%A8me+du+cavalier&t=ffcm
+*** http://www.ludism.org/mentat/CalendarFeat
 
