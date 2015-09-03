@@ -1,5 +1,5 @@
-#+TODO: TODO(t) WAITING(w) | DONE(d!) CANCELED(c)
-#+TODO: À_ÉCRIRE(à) COMMENCÉ(o) EN_ATTENTE(e@) FINI(f) | ANNULÉ(a@) PUBLIÉ(p!)
+#+TODO: TODO(t) WAITING(w) | DONE(d) CANCELED(c)
+#+TODO: À_ÉCRIRE(à) COMMENCÉ(o) EN_ATTENTE(e@) FINI(f) | ANNULÉ(a) PUBLIÉ(p)
 
 * Ce fichier
 blog et projet
@@ -43,8 +43,11 @@ blog et projet
 ***** TODO Utiliser agenda sur ce fichier
 ***** DONE utiliser réflexion 
       avant de modifier structure/workflow -> les différentes solutions avec pour et contre
-****** Archiver quand réfléxion finie
+****** TODO Archiver quand réfléxion finie
 ‰C-c C-x a‰
+******* TODO [#A] déplacer dans un fichier archive en gardant structure 
+        -> a faire?
+http://stackoverflow.com/questions/31666110/duplicate-tree-structure-in-org-mode-archive
 ****** si plusieurs propositions
 ******* mettre en DONE la choisie
 ******* CANCELED mettre en CANCELED les autres
@@ -71,7 +74,6 @@ suivant découpage
 ****** notes
 
 ***** local setup (général)
-
 ***** quid des bouts de code/autres, mais perso ou pas à publier?
 ****** DONE réfléxion à faire sur l'organisation globale            :ARCHIVE:
 ******* 1
@@ -95,21 +97,50 @@ partage avec com' / from emacs ?
 ***** oblog
 **** TODO pluxml à partir d'emacs
 ***** TODO 1er temps
-‰C-c C-e C-b h r‰
+‰C-c C-e C-b C-s h b‰
 ‰C-b‰ pour n'avoir que le corps de l'article
-****** TODO [#A] modifier l'export html pour mettre dans un buffer seulement
-***** TODO 2eme temps
+‰C-s‰ pour n’avoir que subtree
+****** DONE modifier l'export html pour mettre dans un buffer seulement
+***** TODO [#A] 2eme temps
 voir pour faire l'export dans un fichier article xml en renseignant correctement les balises
+***** TODO Dans Sites, éviter les doublons, possible de faire des dossiers dans plux?
+-> osef, les .org sont justes la base des articles -> oui, garder les dossiers.
+
+****** Soit dans data
+- blog 
+  - data
+    article1
+    article2
+    - 2015
+      - 08
+        article1.org
+        article1.org.html (ici?)
+****** DONE Soit à la racine 
+-> permet de garder structure actuelle
+-> liens en dur dans article -> permet de rien changer si change encore de publication
+- blog
+  - data
+    article1
+    article2
+- 2015
+  - 08
+    article1.org
+    article1.org.html 
+***** TODO [#A] Comment faire pour les liens vers les autres articles?
+****** si en dur, on perd dans les .org
+****** si en .org, on perd dans articles…
+******* changer à la main
+******* modifier la fonction d'export
 **** Pour les billets au sens large (articles snippets)             :ARCHIVE:
 ***** réflexion organisation fichier                                :ARCHIVE:
 ****** ajouter un tag A_publier/En_cours/…
-sous-aile à obtenir -> on peut mettre n'importe où
+sous-arbre facile à obtenir -> on peut mettre n'importe où
 ****** ajouter un tag article/snipp/…
-peut-ê les notes
+peut-être pour les notes
 ****** Mettre dans des headlines séparés
-péniblfier
+pénible à planifier
 ****** Utiliser des statuts TODO/DONE
-doubloles projets
+doublon pour les projets
 ****** mix des status et tags
 ****** DONE Un dossier pour article/ql/statiques +  des statuts particuliers
 - À_ÉCRIRE : une idée comme ça… ; tag du début
@@ -134,7 +165,7 @@ Et utiliser ‰C-c C-t‰
 ********* suite
 ******** STATUT(COMMENCÉ) vrai titre
 [[lien vers fichier .org]]
-éventuellement une description/copie du chapô?
+éventuellement une description?
 ****** Statiques
 ******* PAO
 [[lien vers fichier .org de l'article]]
@@ -191,53 +222,64 @@ une fois terminés
   - cheatsheet tag emacs
   - trouvaille tag math, css
 
-***** réflexion lien blog-projet
+***** réflexion lien blog-projet                                    :ARCHIVE:
 ****** article (catégories)
-| catégorie         | dépot                        |
-| diatribes         | articlesBlog                 |
-| paremboles        | articlesBlog                 |
-| pas de catégories | articlesBlog                 |
-| guides            | articlesBlog (+guide?)       |
-| snippet           | articlesBlog + snippet       |
-| lab               | articlesBlog + lab           |
-| blog              | articlesBlog                 |
-| projet            | articlesBlog + dépot du projet |
-| raccourci         | articlesBlog + cheatsheet    |
-| trouvaille        | articlesBlog                 |
-| mémo              | articlesBlog                 |
+| catégorie         | dépot                                             |
+|-------------------+---------------------------------------------------|
+| diatribes         | site/blog/data/articles                           |
+| paremboles        | site/blog/data/articles                           |
+| pas de catégories | site/blog/data/articles                           |
+| guides            | site/blog/data/articles (+guide?)                 |
+| snippet           | site/blog/data/articles + snippet                 |
+| lab               | site/blog/data/articles + lab                     |
+| blog              | site/blog/data/articles                           |
+| projet            | site/blog/data/articles + dépot du projet         |
+| raccourci         | site/blog/data/articles + ajouter dans cheatsheet |
+| trouvaille        | site/blog/data/articles                           |
+| mémo              | site/blog/data/articles                           |
 
-**** TODO choisir un beau thème
+**** CANCELED choisir un beau thème
+Fait à la main
 **** TODO créer les dépôts
 **** TODO fusionner l'ancien blog…
+***** TODO les dossiers avec articles en .org/.org.html?
+ils restent, et les nvx articles pointent dessus?
+***** DONE anciens article rappatrier
+***** TODO [#A] Mettre à jour les artictles
+****** TODO lien vers org/org.html
+****** TODO liens vers autres articles
+******* TODO comment faire dans source?
+****** TODO ~ en ‰
+****** TODO réexporter pour espace insécable…
 
-**** TODO la suite (old_blog)
+**** TODO la suite (old_blog)                                       :À_trier:
 ***** raf                                                          :old_blog:
-****** en profiter pour mettre une license ?
+****** TODO en profiter pour mettre une license ?
 *******  http://www.gnu.org/licenses/license-list.html#OpinionLicenses
 *******  https://github.com/renard/o-blog/tree/o-blog-v2/
 *******  C0, mais évidemment, c'est mieux si d'où ça vient…
 *******  http://draketo.de/light/english/emacs/babcore legalese
 
 
-
-****** exple de blogs avec ox :
+****** CANCELED exple de blogs avec ox :
 ******* http://www.seas.upenn.edu/~heqin/academic/sitecreation.html#
 ******* http://bzg.fr/blogging-from-emacs.html
-****** index
+****** CANCELED index
 ******* 2: 1 avec readmore, 1 sans
 faire ça avec #+INCLUDE: "/data/Donnees/Sites/fredtantini/2014/03/20140308_des_raccourcis_en_vrac.org" :lines "10-" ?
-****** faire des index dans les dossiers/sous-dossiers et faire pointer up sur cet index
+****** CANCELED faire des index dans les dossiers/sous-dossiers et faire pointer up sur cet index
 ******* http://orgmode.org/manual/Sources-and-destinations.html#Sources-and-destinations
 ******** :preparation-function 
 ******* http://orgmode.org/manual/Publishing-action.html#Publishing-action
 ******* http://orgmode.org/manual/Publishing-options.html#Publishing-options
-****** theme/css
+****** CANCELED theme/css
 ******* http://andersnoren.se/themes/lingonberry/
 ******* http://tonaldemo.wordpress.com/
 ******* http://caslay.com/tiny_theme/shortcodes-preview/
 ******* http://orgmode.org/worg/org-hacks.html
 ******* http://thenybble.de/projects/orgsite.html
 ******* http://vbrajon.fr/
+****** TODO nouveau export/publish
 ***** old idées billet                                             :old_blog:
 ****** ce que j'aime
 *******  bout de code
@@ -276,7 +318,7 @@ https://github.com/peachananr/purejs-onepage-scroll
          àla flappybird
 ******* prendre code base sur https://github.com/gabrielecirulli/2048
 
-****** nbakc
+****** nback
 ****** deluxe paint 3/flocon
 ****** jeu voiture V.
 ****** générateur PS1/screenrc
@@ -311,6 +353,13 @@ https://github.com/gudh/ihover/blob/gh-pages/src/ihover.css
 http://tympanus.net/Development/ModalWindowEffects/
 ****** filtres css
 http://iamvdo.me/en/blog/advanced-css-filters
+
+*** Site
+    tout ce qui n’est pas article/rédaction
+
+**** index à la racine qui redirige correctement
+
+**** 2em sitemap 
 
 *** Projet
 **** réflexions organisation fichier
@@ -374,78 +423,217 @@ choses à tester
 
 - Choses à lire
 - Choses à essayer/tester
+- Déplacer ensuite ici
 * TODO [#A] Blog
 ** Catégories
 *** diatribes
 *** paremboles
+**** PUBLIÉ [[file:2012/11/20121116_nettoyage_d_emacs.org][Le nettoyage de mon .emacs]]                        :mettre_à_jour:
+**** PUBLIÉ [[file:2013/11/20131105_modifier_des_fichiers_en_masse.org][Modifier des fichiers en masse]]                    :mettre_à_jour:
+**** PUBLIÉ [[file:2013/12/20131222_le_probleme_opendir_de_minigalnano_chez_free.fr.org][Le problÃ¨me opendir de MinigalNano chez Free.fr]]  :mettre_à_jour:
+**** PUBLIÉ [[file:2014/05/20140518_un_peu_de_typographie_et_marquer_les_raccourcis_clavier_dans_org-mode.org][Un peu de typographie et marquer les raccourcis clavier dans org-mode]] :mettre_à_jour:
+**** PUBLIÉ [[file:2014/07/20140721_difference_entre_eval-after-load_et_add-hook.org][DiffÃ©rence entre =eval-after-load= et =add-hook=]] :mettre_à_jour:
+**** PUBLIÉ [[file:2014/07/20140729_recuperer_les_images_d_une_galerie_en_python.org][RÃ©cupÃ©rer les images dâ€™une galerie en python]]  :mettre_à_jour:
+***** lien site
+**** À_ÉCRIRE [[file:2013/11/20131123_retenir_plus_facilement_-_ma_version_du_systeme_pao.org][Retenir plus facilement - ma version du systeme PAO]] :mettre_à_jour:
 **** À_ÉCRIRE importance des commentaires (cf mail)
 
 **** À_ÉCRIRE config pour git/bit
      À_ÉCRIRE ssh-add / script pour copier/coller, avoir les différents mails…
 *** guides
+**** PUBLIÉ [[file:2014/06/20140607_le_demarrage_d_emacs.org][Le dÃ©marrage dâ€™Emacs]]                           :mettre_à_jour:
+
 **** À_ÉCRIRE tuto orgmode
 http://orgmode.org/worg/org-tutorials/#sec-7
 
 *** snippet
+
+**** À_ÉCRIRE Request-wget
 *** lab
+**** PUBLIÉ kriss pin                                         :mettre_à_jour:
+**** FINI cavalier
 *** blog
+**** À_ÉCRIRE [[file:2013/02/20130202_fonction_pour_creer_un_nouveau_billet.org][Fonction pour crÃ©er un nouveau billet]]
+**** À_ÉCRIRE [[file:2013/04/20130421_le_flux_rss_est_dispo.org][Le flux RSS est dispo]]
 **** À_ÉCRIRE nouvelle organisation/GTD
 ***** nouveau blog toussa
-
+lien vers  [[file:2012/11/20121110_config-org-publish-project-alist.org][Ma config d'org-mode pour la publication de ce site.]]
 *** projets
 **** À_ÉCRIRE recupKDOCE                                             :projet:
 **** À_ÉCRIRE recupMem                                               :projet:
-
+**** À_ÉCRIRE [[file:2013/01/20130126_fourmis_stupides_et_PyQt_2.org][Stupides fourmis et PyQt, acte 2]]                   :stupidants:
+**** À_ÉCRIRE [[file:2013/01/20130123_elisp_liste_de_a_a_z.org][GÃ©nÃ©rer une liste de a Ã  z dans emacs]]           :stupidants:
+**** À_ÉCRIRE [[file:2013/01/20130119_colonie_de_fourmis_stupides_et_PyQt_1.org][Utilisation de PyQt pour une colonie de fourmis]]    :stupidants:
+**** À_ÉCRIRE [[file:2013/03/20130301_des_fourmis_et_des_pheromones_-_3eme_partie.org][Des fourmis et des phÃ©romones - 3Ã¨me partie]]      :stupidants:
+**** À_ÉCRIRE [[file:2013/05/20130519_les_fourmis_suite_et_fin.org][Les fourmis, suite et fin]]                          :stupidants:
+**** À_ÉCRIRE [[file:2014/02/20140205_gribouilli_pour_laisser_vos_petits_enfants_taper_sur_votre_clavier.org][gribouilli, pour laisser vos (petits) enfants taper sur votre clavier]] :gribouilli:
+**** PUBLIÉ [[file:2013/02/20130228_trier_des_choses_sur_une_page_web.org][Trier des choses sur une page web]]          :projet:mettre_à_jour:
 *** raccourcis
+**** PUBLIÉ [[file:2013/12/20131221_agrandir_la_police_dans_emacs_avec_control_plus_roulette.org][Agrandir la police dans emacs avec control plus roulette]]
+
+**** PUBLIÉ [[file:2014/03/20140308_des_raccourcis_en_vrac.org][Des raccourcis en vrac]]                            :mettre_à_jour:
++ link sachachua pas correct
+**** PUBLIÉ [[file:2014/03/20140322_relancer_une_precedente_commande_en_ksh.org][Relancer une prÃ©cÃ©dente commande en ksh]]         :mettre_à_jour:
+**** PUBLIÉ [[file:2014/04/20140414_une_espace_une_tabulation.org][Une espace une tabulation]]                         :mettre_à_jour:
+liés liées / lien vers site
+**** PUBLIÉ [[file:2014/05/20140520_edit_dans_dired_occured_awesome.org][Edit dans dired/occured = awesome]]                 :mettre_à_jour:
+**** PUBLIÉ zap-up-to-char
+Dans vi, on peut supprimer jusqu’à un caractère =c= avec ‰dtc‰ pour
+garder le caractère, et ‰dfc‰ pour supprimer le caractère.
+
+Dans emacs, on utilise ‰M-z‰ pour appeler =zap-to-char=. Et je viens
+de trouver que =zap-up-to-char= existe…
+
+Sur [[http://rubikitch.com/2015/09/02/zzz-to-char/][rubikitch.com]], sorte de [[http://irreal.org/blog/][irreal.org]], mais en japonais avec beaucoup
+de présentation de thèmes, Rubikitch vient de présenter [[https://github.com/mrkkrp/zzz-to-char][zzz-to-char
+(github)]], un =zap-to-char= à la sauce [[https://github.com/abo-abo/avy][avy (github)]], utilisé par
+=ace-jump=. Dans sa description on peut lire : « which work like
+built-ins zap-to-char and zap-up-to-char ». Et effectivement,
+=zap-up-to-char= existe par défaut, mais n’est pas autoloadé. Il est
+caché dans ~misc.el~ (avec =butterfly=). Du coup, soit on modifie le
+fichier pour rajouter un autoload, soit on s’ajoute dans son
+=init.el= :
+#+BEGIN_SRC elisp
+(require 'misc)
+(global-set-key (kbd "M-Z") 'zap-up-to-char)
+#+END_SRC
+**** À_ÉCRIRE togetherly
+framapad dans emacs (voir aussi screen avec partage d’écran)
+https://github.com/zk-phi/togetherly
+**** À_ÉCRIRE [[file:2014/06/20140610_rubrique-en-vrac.org][Rubrique-en-Vrac]]                                :mettre_à_jour:
 *** trouvailles
+**** PUBLIÉ Que fait Firefox sur le réseau quand on le démarre et faut-il y remédier ?
+Un état des lieux de pourquoi firefox fait « tant » de requêtes au démarrage : http://aldarone.fr/que-fait-firefox-sur-le-reseau-quand-on-le-demarre-et-faut-il-y-remedier/
+
+En bref : laisser firefox faire son boulot !
+**** PUBLIÉ bloquer les pubs pour charger plus vite ?
+Via [[http://www.zdnet.fr/actualites/adblockers-et-performances-quels-gains-pour-charger-une-page-web-39824012.htm][zdnet]] : quelqu’un (Raymond) a comparé des bloqueurs de pub d’un point de vue performance (temps de chargement de la page, utilisation CPU et utilisation mémoire). Son vainqueur : [[https://github.com/gorhill/uBlock][µBlock origin]], suivi par Ghostery et [[https://github.com/AdguardTeam/AdguardBrowserExtension][Adguard]]. À noter que Ghostery est propriétaire. D’autres alternatives et autres modules complémentaires, sur [[https://prism-break.org/fr/subcategories/gnu-linux-web-browser-addons/][prism-break.org]].
+**** COMMENCÉ Besoin de se dégourdir les doigts ?
+
+Parfois on a (j’ai) envie de coder (ou faire coder des étudiants) et
+on ne sait pas quoi faire. Voici une liste non-exhaustive et non
+testée de sites web qui propose des exercices pour apprendre à
+programmer, des challenges pour faire s’affronter des programmes,
+voire pour gagner de l’argent.
+
+# Fin chapeau
+
+En fait, l’idée de l’article est parti de la lecture de ce site :
+http://inventwithpython.com/blog/2012/02/20/i-need-practice-programming-49-ideas-for-game-clones-to-code/.
+Et effectivement, coder des petits jeux, c’est toujours plus sympa que
+faire des cribles d’Ératosthène ou des suites de fibonacci. Mais ça
+prend plus de temps…
+
+Les sites qui permettent d’apprendre à coder sont tout aussi sympa si
+on veut changer de langages, mais bien souvent, ils partent /from
+scratch/ et quand on connaît quelques langages (et même un seul), il
+suffit — bien souvent —  juste de connaître la syntaxe du =if/for/class=
+pour être capable de programmer — les bonnes pratiques, c’est autre
+chose par contre.
+
+
+
+avant, lire https://sites.google.com/site/steveyegge2/practicing-programming
+
+  - http://sixrevisions.com/resources/10-puzzle-websites-to-sharpen-your-programming-skills/
+plus ou moins « pratique » 
+
+permet de gagner de l’argent :
+- http://www.topcoder.com/
+- https://www.hackerearth.com/
+- https://www.codeeval.com/
+- https://www.kaggle.com/
+
+refactoring :
+- https://codility.com/programmers/
+
+match :
+- http://fightcodegame.com/
+
+idées de jeux
+- 
+
+
+exercices
+- https://www.codingame.com/start
+- http://exercism.io/
+- http://codeforces.com/
+- http://rosalind.info/problems/locations/ (bioinfo)
+- https://www.hackerrank.com/
+- http://www.codechef.com/
+- http://programmingpraxis.com/
+- http://codecombat.com/
+- http://www.spoj.com/
+- https://projecteuler.net/
+- https://www.hackerearth.com/problems/
+- https://www.codechef.com/problems/easy
+- http://codegolf.stackexchange.com/questions -> faire s’affronter son programme
+- http://coderbyte.com/CodingArea/Challenges/
+- http://codewars.com/
+- https://www.codingame.com/games
+- https://www.reddit.com/r/dailyprogrammer
+python koan
+- failli oublier https://www.newbiecontest.org/
 *** mémo
+**** PUBLIÉ [[file:2013/05/20130519_encoder_avec_mencoder.org][Encoder avec mencoder]]                             :mettre_à_jour:
+**** PUBLIÉ [[file:2014/07/20140728_quelques_notes_soapui.org][Quelques notes SoapUI]]                             :mettre_à_jour:
+**** PUBLIÉ Python Module of the Week
+Note pour moi-même.
+
+Les modules des « module python de la semaine » : https://pymotw.com/2/contents.html
+
+Par ordre alphabétique : https://pymotw.com/2/py-modindex.html
+
+Pour info, pymotw est/était la présentation par [[http://www.doughellmann.com/][Doug Hellmann]] d’un
+module python avec des exemples de codes. Les sources sont disponibles
+sur [[http://bitbucket.org/dhellmann/pymotw/][bitbucket]].
+
+Pour python 3 : https://pymotw.com/3/
 *** non classé
-**** À_ÉCRIRE  TODO envoyer fichiers port056
+**** À_ÉCRIRE TODO envoyer fichiers port056
 voir les .org dispos + faire sur cft?
 **** À_ÉCRIRE squash/soap/travail
+
 *** Snippets
 ** Statiques
 *** Cheatsheet
-**** À_ÉCRIRE emacs
-à découper
+**** PUBLIÉ emacs
+***** TODO info à mettre à jour (lien(s) fichier(s) source)
 *** liste projets
 *** lab
-**** css
+**** PUBLIÉ gol
+**** PUBLIÉ kriss pin
+**** EN_ATTENTE cavalier
+     mettre article -> ajouter lien
+*** a propos
+- nouvelle organisation
+- nouveaux flux
+  - raccourcis pas affichés, trop orientés emacs
+* TODO Site
+** index/racine
+*** reprendre l’a propos du blog
+** 404
+** sitemap
+** flux rss
+*** DONE catégories à ne pas mettre dans le flux
+raccourcis ne me semble pas pertinant -> on le laisse s’afficher dans
+le menu, mais les articles ne s’affiche pas sur l’écran (admin ->
+catégorie -> éditer-> Afficher les articles de cette catégorie sur la
+page d'accueil)
+**** modification
+cf https://github.com/pluxml/PluXml/issues/11
+https://github.com/pluxml/PluXml/pull/29/files
+
 * TODO Projets
 
 ** .emacs.d
+      :PROPERTIES:
+      :URL:  https://bitbucket.org/fredtantini/.emacs.d/
+      :FILE: ~/.emacs.d/
+      :DESCRIPTION: config emacs
+      :END:      
 config d'emacs, custom séparé
-https://bitbucket.org/fredtantini/.emacs.d/
 
+** kdoce
 
-* Notes
-
-** À utiliser
-une fois acquis déplacer/noter dans articles
-*** emacs
-**** Raccourcis
-‰C-x C-j‰ (=dired-jump=) Ouvre un buffer ~Dired~ et se met sur le buffer courant
-**** orgmode
-***** déplacement
-- ‰C-c C-u‰ plus haut dans l'arbre
-- ‰C-c C-n/p‰ heading suivant/précédent (même si plus haut/bas)
-- ‰C-c C-f/b‰ sibling suivant/précédent
-***** agenda
-***** remember
-***** org-goto
-
-**** magit
-‰M-x magit-init‰
-create repository dans dossier
-‰i‰ pour ajouter un .gitignore =*pyc= et =*~=
-‰M a‰ pour add a remote (origin/git@bitbucket.org:fredtantini/foobar.git)
-
-puis
-‰g‰ pour actualiser -> propose de sauver
-‰s‰ sur Untracked pour sauver
-‰c c‰ pour commit "recuperer une page" puis ‰C-c C-c‰
-‰P P‰ pour pusher sur origin/master
-
-** À voir
-
-
+** recupmem
