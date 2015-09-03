@@ -2,8 +2,8 @@
 ** TODO anciens fichiers .org
 *** supprimer redondance
 *** déplacer si doit être dans autre .org
-*** utiliser une archive si possible
-** nouveaux fichiers org
+*** utiliser un archive si possible?
+** TODO nouveaux fichiers org
 1 heading = 1 dossier
 1 item = 1 fichier
 *** DONE notes 
@@ -19,8 +19,16 @@ vie privée
 - notes-famille-prive.org
 vie privée
 - ...
-*** blog
-Dans Sites/fredtantini/blog/
+*** TODO [#A] blog 
+Dans Sites, éviter les doublons, possible de faire des dossiers dans plux?
+-> osef, les .org sont justes la base des articles -> oui, garder:
+- data
+  article1
+  article2
+  - 2015
+    - 08
+      article1.org
+      article1.org.html (ici?)
 **** categorie
 ***** categorie 1
 - article 1
