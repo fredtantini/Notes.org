@@ -44,8 +44,11 @@ Dans Sites, éviter les doublons, possible de faire des dossiers dans plux?
 ***** pao
 * À voir
 ** À regarder
-*** Mr. Robot
-*** Sense8
+*** Séries
+**** Mr. Robot
+*** Film/doc
+**** He Named Me Malala
+**** liste doc imgur
 ** À lire
 * À utiliser
 une fois acquis déplacer/noter dans articles
@@ -68,7 +71,7 @@ puis
 
 *** orgmode
 **** customize
-org-adapt-indentation : à nil => ne pas indenter properties/drawers/...
+org-adapt-indentation : à nil => ne pas indenter properties/drawers/...
 **** déplacement
 - ‰C-c C-u‰ plus haut dans l'arbre
 - ‰C-c C-n/p‰ heading suivant/précédent (même si plus haut/bas)
@@ -153,6 +156,8 @@ avec pomodoro?
 ***** veille
 ****** 1 scéance maison par jour pour dépiler flux rss -> ajout de notes à lire
 ****** 1 scéance de lecture des choses notées à partir des «à lire» -> ajout d'autres «à lire»
+* À faire
+** stopmotion
 * TODO À trier plus
 ** Info
 *** emacs                                                                :QL:
@@ -238,7 +243,7 @@ comme narrow, mais au lieu de supprimer le texte, le grise
 ***** TODO keychord pour lancer une commande quand on appuie sur 2 touches en même temps
 ****** http://www.emacswiki.org/emacs/KeyChord
 ****** http://www.reddit.com/r/emacs/comments/22hzx7/what_are_your_keychord_abbreviations/
-***** TODO company mode : COMPlete ANYthing «popup qui affiche les complétions possibles»
+***** TODO company mode : COMPlete ANYthing «popup qui affiche les complétions possibles»
 ****** http://www.emacswiki.org/emacs/CompanyMode
 ****** http://company-mode.github.io/
 ***** conversion en masse via un makefile
@@ -268,7 +273,7 @@ comme narrow, mais au lieu de supprimer le texte, le grise
 ****** (setq show-paren-style 'parenthesis)
 ****** (show-paren-mode +1)
 ****** Show Paren Delay + grand, mais Show Paren Style: Value Menu expression
-****** https://github.com/Fuco1/smartparens : Some of these packages include autopair, textmate, wrap-region, electric-pair-mode, paredit and others
+****** https://github.com/Fuco1/smartparens : Some of these packages include autopair, textmate, wrap-region, electric-pair-mode, paredit and others
 ****** paredit http://www.emacswiki.org/emacs/ParEdit
 ***** http://www.emacswiki.org/emacs/HighlightTemporarily
 ***** C-h a ≠ M-x apropos !!!!!
@@ -322,7 +327,7 @@ capturing blog idea
 ***** decoupage .c a gauche .h a droite
 http://stackoverflow.com/questions/1002091/how-to-force-emacs-not-to-display-buffer-in-a-specific-window/1002172#1002172
 **** à étudier
-***** à lire : overlays
+***** à lire : overlays
 ****** http://www.gnu.org/software/emacs/manual/html_node/elisp/Managing-Overlays.html#Managing-Overlays
 ******* http://www.gnu.org/software/emacs/manual/html_node/elisp/Text-Properties.html#Text-Properties
 ******* https://github.com/ShingoFukuyama/ov.el#ovel-
@@ -339,6 +344,7 @@ réponse :
 #+END_SRC
 ***** manipuler les overlay facilement
 ****** https://github.com/ShingoFukuyama/ov.el#ovel-
+***** http://www.imagemagick.org/Usage/
 **** autre
 ***** citation Emacs/vegan
 ***** https://twitter.com/timotm/status/446633786797588480
@@ -377,7 +383,7 @@ des liens pour ceux qui débutent
 ***** https://en.wikipedia.org/wiki/Homoiconicity
 ***** https://github.com/xaccrocheur/kituu/blob/master/.emacs
 *** bash
-**** C-M-e : remplace l'alias avant de l'exécuter
+**** C-M-e : remplace l'alias avant de l'exécuter
 ***** http://stackoverflow.com/questions/22612627/print-terminal-alias-command-as-well-as-executing-it
 *** idées projets/code                                        :articles_blog:
 **** https://demo.cozycloud.cc/#home
@@ -519,7 +525,7 @@ DB
 **** rikai chan
 *** avoir des idées d'articles                                         :idee:
 **** Lectures du jour
-idée : ce qu'on lit et qu'on trouve intéressant, on ne le bookmark pas, mais on le partage en disant pquoi c'est bien ?
+idée : ce qu'on lit et qu'on trouve intéressant, on ne le bookmark pas, mais on le partage en disant pquoi c'est bien ?
 org-mode souhaité
 ***** sol possibles
 - shaarli 
@@ -531,7 +537,7 @@ recopier/sauver l'article en demandant -> contacter + remercier
 - shaarli puis exporte «du jour» (ou plutôt depuis) en fichier org
 **** Actions informatiques du jour
 ***** un pb, comment je l'ai abordé, la solution.
-- peut être simple :
+- peut être simple :
   - raccourcis emacs utilisés pour résoudre un pb, noter un truc
     - dump de C-h l ?
   - script bash tt bête, etc.
@@ -547,7 +553,7 @@ cedet http://alexott.net/en/writings/emacs-devenv/EmacsCedet.html The CEDET pack
 etags (M-.) construit une table qui permet de naviguer vers définition de fonctions, etc. http://www.emacswiki.org/emacs/EmacsTags https://www.gnu.org/software/emacs/manual/html_node/eintr/etags.html https://www.gnu.org/software/emacs/manual/html_node/emacs/Tags.html#Tags http://www.jayconrod.com/posts/36/emacs-etags-a-quick-introduction http://blog.chmouel.com/2009/07/03/update-emacsvim-tags-with-inotify/
 yasnippet http://www.emacswiki.org/emacs/Yasnippet https://github.com/capitaomorte/yasnippet écriture de squelettes
 flymake http://www.emacswiki.org/emacs/FlyMake vérification de code à la volée
-imenu http://www.emacswiki.org/emacs/ImenuMode naviguer dans le buffer : M-x imenu-add-menubar-index -> dans le menu apparait Index (marche pour org-mode !) ou M-x imenu, puis tab pour la liste (sinon, M-x imenu-add-to-menubar puis un nom, qui remplacera «Index» dans la menubar)
+imenu http://www.emacswiki.org/emacs/ImenuMode naviguer dans le buffer : M-x imenu-add-menubar-index -> dans le menu apparait Index (marche pour org-mode !) ou M-x imenu, puis tab pour la liste (sinon, M-x imenu-add-to-menubar puis un nom, qui remplacera «Index» dans la menubar)
 semantic https://www.gnu.org/software/emacs/manual/html_node/emacs/Semantic.html provide search, navigation, and completion commands that are powerful and precise. https://www.gnu.org/software/emacs/manual/html_node/semantic/index.html
 speedbar
 http://www.gnu.org/software/global/ ? source code tagging system, comme etag, mais indépendant du navigateur. Voir aussi https://github.com/OpenGrok/OpenGrok/wiki/Comparison-with-Similar-Tools
@@ -555,7 +561,7 @@ http://ecb.sourceforge.net/ "Emacs Code Browser" http://ecb.sourceforge.net/scre
 http://www.gnu.org/software/idutils/
 http://stackoverflow.com/questions/750267/emacs-tab-completion-of-local-python-variables http://stackoverflow.com/a/750721 http://stackoverflow.com/a/765390
 projectile https://github.com/bbatsov/projectile toggle between code and its test, kill all project buffers, replace in project, grep in project...
-elisp :
+elisp :
 C-h f / C-h v
 eldoc  http://www.emacswiki.org/emacs/ElDoc (shows you, in the echo area, the argument list of the function call you are currently writing) + supporté dans certains modes
 http://stackoverflow.com/questions/7022898/emacs-autocompletion-in-emacs-lisp-mode 
@@ -592,11 +598,12 @@ http://user23.net/dev/dev/pricing.html
 **** Bluemind ->savoir faire linux
 *****  http://blue-mind.net/partenaires/article/partenaires
 *****  http://www.objectif-libre.com/fr/catalogue-des-formations-linux-et-logiciels-libres
+**** http://www.planete-auto-entrepreneur.com/developper-votre-auto-entreprise/trouver-des-clients.html
 
 ** Mémoire
 *** DONE Cavalier
 **** anglais
-***** DONE http://frezcogames.com/Knights_Tour.php : les yeux fermés
+***** DONE http://frezcogames.com/Knights_Tour.php : les yeux fermés
 ****** DONE traduire?
 ***** DONE http://borderschess.org/KTclosed.htm
 http://borderschess.org/alt-kt_tours_frame.htm
@@ -613,5 +620,495 @@ GO échec Pérec (http://classes.bnf.fr/echecs/pedago/antho/09.htm)
 *** http://www.ludism.org/mentat/CalendarFeat
 *** mem dep
 *** mem kanji
+*** pi
+3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
+14.15.92 Renaud - lance/Souffle - Nénuphar
+65.35.89 Simba - maison/aSpire - Pantalon
+79.32.38 P.Petrelli - maison/Nappe - Parchemin
+46.26.43 Dupont - négocie/Ding-Dong - Moustique
+38.32.79 Vegeta - maison/Nappe - Perceuse
+50.28.84 Candeloro - négocie/Vuvuzela - Robe
+19.71.69 Piaf - travail/éLectricien - Venezuela
+39.93.75 Piccolo - piège/eMMure - Scie
+10.58.20 Cabrel - esquisse/Visage - Koala
+97.49.44 Tapie - roule/Poubelle - aRaignée
+59.23.07 Platini - négocie/Miaule - Tét*
+81.64.06 Luigi - détruit/Rouleau-compresse - Dent
+28.62.08 Vandel - détruit/Nunchaku - Veines
+99.86.28 Pasqua - vétu/Danseur - Vampire
+03.48.25 Mitsurugi - roule/Voiture - Souris
+34.21.17 Rock lee - négocie/huLule - Tarte
+06.79... Dahlsim - travaille/Pompier
+
+* PCG
+
+** Robots on ice
+#Robots on ice
+
+
+
+##Part 1 - The basic
+You are helping a robot `R` on an iced island. `R` can go
+up/down/left/right. But since the island is made of ice, it cannot
+move only 1 square at a time, but instead moves in straight line. Your
+task is to help `R` reach `G`.
+
+### Input
+
+The input (file, stdin, input, whatever suits you) is an `n×m`
+matrice with the following characters:
+
+- `R` The robot
+- `G` The goal
+- `#` An obstacle that stops the robot
+- ` ` Ice
+
+The island is surrounded by a wall: the edges of the matrice always consist of `#`.
+
+### Output
+A list of instructions consisting of U/D/L/R, corresponding to
+up/down/left/right.
+
+The list should be the shortest possible. The distance traveled by the
+robot doesn't count.
+
+The output should be the map with the instructions on it, with each
+instruction at the right coordinates. Each of `RG# ` should be
+displayed if not overriden by an instruction (that will always be the
+case for `R`)
+
+# Example
+Input:
+
+    ##########
+    # #      #
+    #        #
+    #  G #   #
+    #        #
+    #    R#  #
+    #        #
+    ##########
+
+Output:
+Since D,R,U,L,D is one possible solution, the output should be:
+
+    ##########
+    # #D    L#
+    #        #
+    #  G #   #
+    #        #
+    #    D#  #
+    #    R  U#
+    ##########
+
+Another solution, U,R,U,L,D, should be output as:
+
+    ##########
+    # #D    L#
+    #        #
+    #  G #   #
+    #    R  U#
+    #    U#  #
+    #        #
+    ##########
+
+
+Input:
+    
+    ####################
+    ###R             ###
+    #  ######          #
+    #      #####       #
+    ##                G#
+    ###              ###
+    ####################
+    
+Output:
+    
+    ####################
+    ###R            D###
+    #RD######          #
+    #U L   #####       #
+    ##R               G#
+    ###U            L###
+    ####################
+    
+You can assume that the puzzle always has at least 1 solution
+
+##Part 2 - New options
+
+The pitch is the same, but new characters can be displayed:
+
+### Input
+
+The input (file, stdin, input, whatever suits you) is an `n×m`
+matrice with the following characters:
+
+- `R` The robot
+- `G` The goal
+- `#` An obstacle that stops the robot
+- ` ` Ice
+- `W` Some water. Robot doesn’t like water
+- `B` a Box. Robot can push the box 1 square at a time, in front of
+  him (not on the side), if the next square is ` `. It cannot be
+  pushed into the water, through the goal… Robot cannot push 2 boxes
+  at once. When pushing, the robot stays in place.
+- `1` a numbered teleportation door. Always in pair. When entering a
+  teleportation door, Robot will continue sliding in the same
+  direction through the other door. Can be used more than 1 time.
+
+The island will this time be surrounded by water.
+
+### Output
+A list of instructions consisting of U/D/L/R, corresponding to
+up/down/left/right.
+
+The list should be the shortest possible. The distance traveled by the
+robot doesn't count.
+
+This time the output won't be displayed on the map, but on stdout. The
+format doesn't matter:
+
+    UDRL
+or
+
+    U
+    D
+    R
+    L
+are accepted
+
+### Example
+Input:
+
+    WWWWWWWWWW
+    W W      W
+    W        W
+    W  G 1   W
+    W        W
+    W    1R  W
+    W        W
+    WWWWWWWWWW
+
+Output:
+
+    L
+
+Input:
+
+    WWWWWWWWWW
+    W W      W
+    W    #   W
+    W  G     W
+    W        W
+    W    BR  W
+    W        W
+    WWWWWWWWWW
+
+Output:
+
+    LLUL
+
+The first L moves the box (and the Robot) 1 square:
+
+    WWWWWWWWWW
+    W W      W
+    W    #   W
+    W  G     W
+    W        W
+    W   B R  W
+    W        W
+    WWWWWWWWWW
+
+
+
+Input:
+
+    WWWWWWWWWWWWW
+    W         # W
+    W G 2       W
+    W           W
+    W   B 1     W
+    W#2         W
+    W   # 1R   #W
+    W          #W
+    W    #     #W
+    WWWWWWWWWWWWW
+
+Output:
+
+    L #entering teleportation 1
+    L #pushing the box to the left
+    L #goint to the box
+    D #going to the wall
+    L #entering teleportation 2
+
+The solution `DRULU` is also valid
+
+Input:
+
+    WWWWWWWWWWWWW
+    W #         W
+    W     #     W
+    W#   1      W
+    W           W
+    W           W
+    W    1 R    W
+    W           W
+    W    G      W
+    WWWWWWWWWWWWW
+
+Output:
+
+    L #entering teleportation 1
+    U #going to the wall
+    R #going to the wall
+    D #entering teleportation 1
+
+
+In this situations, Robot cannot moves to the left:
+
+    W  GBR   W
+
+    W  #BR   W
+
+    W  BBR   W
+
+    W  WBR   W
+
+    W    R   W
+
+
+You can assume that the puzzle always has at least 1 solution
+
+
+## Part 3 - With help
+
+Same as part 2 but with others robots:
+
+### Input
+
+The input (file, stdin, input, whatever suits you) is an `n×m`
+matrice with the following characters:
+
+- `R` The robot
+- `G` The goal
+- `#` An obstacle that stops the robot
+- ` ` Ice
+- `W` Some water. Robot doesn’t like water
+- `B` a Box. Robot can push the box 1 square at a time, in front of
+  him (not on the side), if the next square is ` `. It cannot be
+  pushed into the water, through the goal… Robot cannot push 2 boxes
+  at once. When pushing, the robot stays in place.
+- `1` a numbered teleportation door. Always in pair. When entering a
+  teleportation door, Robot will continue sliding in the same
+  direction through the other door. Can be used more than 1 time.
+- `abcde` up to 5 robots that can move the same as Robot. They cannot
+  go through other robots, including R, and can pass through the Goal.
+  They can be sacrified by going into the water. They can be used more
+  than 1 time.
+
+The island is surrounded by water.
+
+### Output
+A list of instructions consisting of U/D/L/R, corresponding to
+up/down/left/right, prefixed by the name of the robot moving.
+
+The list should be the shortest possible. The distance traveled by the
+robot doesn't count.
+
+As usual, theformat doesn't matter:
+
+    a:UDR
+    R:LU
+or
+
+    aU
+    aD
+    aR
+    RL
+    RU
+are accepted
+
+### Example
+Input:
+
+    WWWWWWWWWWWWWWWWWW
+    W        a     # W
+    W   G            W
+    W                W
+    W                W
+    W                W
+    W             R  W
+    W                W
+    W       #        W
+    W             #  W
+    W                W
+    WWWWWWWWWWWWWWWWWW
+
+Output:
+
+    a:R
+    R:UL
+
+The answer `DLUL` is valid but not the shortest
+
+Input:
+
+    WWWWWWWWWWWWWWWWWW
+    W                W
+    W                W
+    W                W
+    W                W
+    W  G    a    R   W
+    W                W
+    W                W
+    W                W
+    W                W
+    W                W
+    WWWWWWWWWWWWWWWWWW
+
+Output:
+
+    a:U
+    R:L
+
+Input:
+
+    WWWWWWWWWWWWWWWWWW
+    W           #    W
+    W                W
+    W  #             W
+    W           G    W
+    W                W
+    W                W
+    W           b    W
+    W   R       a    W
+    W                W
+    W                W
+    WWWWWWWWWWWWWWWWWW
+
+Output:
+
+    b:U
+    a:UL
+    R:UR
+
+
+Input:
+
+    WWWWWWWWWWWWWWWWWW
+    W                W
+    W           #    W
+    W          B     W
+    W  #             W
+    W     G          W
+    W                W
+    W  #             W
+    W   e       R#   W
+    W                W
+    W           a    W
+    WWWWWWWWWWWWWWWWWW
+
+Output:
+
+    e:R
+    R:U
+    a:UL
+    R:LLDLUR
+
+
+Input:
+
+    WWWWWWWWWWWWWWWWWW
+    W                W
+    W         G #    W
+    W   b            W
+    W                W
+    W           a    W
+    W   c            W
+    W           #    W
+    W   R            W
+    W                W
+    W          #     W
+    WWWWWWWWWWWWWWWWWW
+
+Output:
+
+    a:U
+    b:RD
+    a:D
+    C:RD
+    R:RU
+
+Input:
+
+    WWWWWWWWWW
+    W    G   W
+    W aBbBR  W
+    WWWWWWWWWW
+
+Output:
+
+    a:L
+    b:LL
+    R:LLU
+
+In this situations, `R`obot and `b` cannot move to the left:
+
+    W  GaRb  W
+
+    W  #b#R  W
+
+    W aBbBR  W
+
+
+You can assume that the puzzle always has at least 1 solution
+
+
+
+
+## Sandbox Questions
+Has it been done before?
+
+
+What do you think? Is it understandable? Should I do 3 separated
+challenges (and in the sandbox)? More, less? Which part needs more examples? What part is
+unclear?
+
+I would like to go with shortest-code win. Should I use kolmogorov instead?
+
+
+** Robots on ice - the movie
+Make an animated solution for Robots on ice (using curse or:
+print """
+#######
+#R   G#
+#######
+"""
+clear_screen()
+print """
+#######
+# R  G#
+#######
+"""
+clear_screen()
+print """
+#######
+#  R G#
+#######
+"""
+clear_screen()
+print """
+#######
+#   RG#
+#######
+"""
+clear_screen()
+print """
+#######
+#    R#
+#######
+""")
 
 

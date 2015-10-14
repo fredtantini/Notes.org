@@ -30,7 +30,7 @@ blog et projet
 
 ***** TODO [#A] ajouter tag pour savoir quoi faire + priorités
 ***** TODO [#A] Penser les tags et le workflow des fichiers orgs
-****** TODO A_déplacer : voir quoi faire une fois le dépot/blog créé + tag de où
+****** TODO A_déplacer : voir quoi faire une fois le dépot/blog créé + tag de où
 ****** DONE renommer ancien blog
 ****** TODO fusionner correctement old_blog with new_blog
 
@@ -143,12 +143,12 @@ pénible à planifier
 doublon pour les projets
 ****** mix des status et tags
 ****** DONE Un dossier pour article/ql/statiques +  des statuts particuliers
-- À_ÉCRIRE : une idée comme ça… ; tag du début
-- COMMENCÉ : billet commencé (+date)
-- EN_ATTENTE : parce que quelque chose cloche quelque part (+raison)
-- ANNULÉ : parce qu'obsolète… (+raison)
-- FINI : billet fini sur le papier (À publier, mais À écrire commence déjà par à) (+date)
-- PUBLIÉ : billet mis sur le site
+- À_ÉCRIRE : une idée comme ça… / tag du début
+- COMMENCÉ : billet commencé (+date)
+- EN_ATTENTE : parce que quelque chose cloche quelque part (+raison)
+- ANNULÉ : parce qu'obsolète… (+raison)
+- FINI : billet fini sur le papier (À publier, mais À écrire commence déjà par à) (+date)
+- PUBLIÉ : billet mis sur le site
 ******* Utiliser les properties pour local au dossier
 Apparemment on peut pas -> 2 séquences
 #+BEGIN_SRC elisp
@@ -203,12 +203,12 @@ une fois terminés
     - pas de catégories
     - guides
       tuto
-    - snippet : idem projet
+    - snippet : idem projet
     - lab
     - blog
       vie du blog
   - projet
-    une fois un projet fini (en cours) : un article
+    une fois un projet fini (en cours) : un article
   - quicklink
     - raccourci
     - trouvaille
@@ -244,7 +244,7 @@ Fait à la main
 **** TODO fusionner l'ancien blog…
 ***** TODO les dossiers avec articles en .org/.org.html?
 ils restent, et les nvx articles pointent dessus?
-***** DONE anciens article rappatrier
+***** DONE anciens articles à rappatrier
 ***** TODO [#A] Mettre à jour les artictles
 ****** TODO lien vers org/org.html
 ****** TODO liens vers autres articles
@@ -261,7 +261,7 @@ ils restent, et les nvx articles pointent dessus?
 *******  http://draketo.de/light/english/emacs/babcore legalese
 
 
-****** CANCELED exple de blogs avec ox :
+****** CANCELED exple de blogs avec ox :
 ******* http://www.seas.upenn.edu/~heqin/academic/sitecreation.html#
 ******* http://bzg.fr/blogging-from-emacs.html
 ****** CANCELED index
@@ -301,9 +301,6 @@ faire ça avec #+INCLUDE: "/data/Donnees/Sites/fredtantini/2014/03/20140308_des_
        liste des choses qu'on peut sauver, et qu'on peut tronquer
           
 ***** lab                                                          :old_blog:
-****** scroll CSS/JS
-http://blog.gospodarets.com/css-scroll-snap/
-https://github.com/peachananr/purejs-onepage-scroll
 ****** FFFFFF
        r,g,b (ou h,s,v)
        une couleur de départ, 1 couleur d'arrivée, qu'est-ce qui a changé
@@ -334,25 +331,6 @@ http://www.lessmilk.com/
 http://codepen.io/koheishingai/pen/uKvJF
 ****** spiroghaphe
 http://nathanfriend.io/inspirograph/
-
-****** arc-en-ciel 1 ligne de css
-http://codepen.io/Nico_KraZhtest/pen/XbeVzM
-****** portes logiques en css
-http://silon.slaks.net/#gates
-****** timing des animations et transitions en css3
-    http://www.alsacreations.com/tuto/lire/1299-timing-des-animations-et-des-transitions-en-css3.html
-****** animate.css
-http://daneden.github.io/animate.css/
-****** du css 
-(générateurs, filter effects, snippets, demos…) http://www.cssreflex.com/
-****** exemples d'hover en css
-http://tympanus.net/Development/HoverEffectIdeas/
-http://ianlunn.github.io/Hover/
-https://github.com/gudh/ihover/blob/gh-pages/src/ihover.css
-****** fenetre modale
-http://tympanus.net/Development/ModalWindowEffects/
-****** filtres css
-http://iamvdo.me/en/blog/advanced-css-filters
 
 *** Site
     tout ce qui n’est pas article/rédaction
@@ -451,7 +429,7 @@ http://orgmode.org/worg/org-tutorials/#sec-7
 **** À_ÉCRIRE Request-wget
 *** lab
 **** PUBLIÉ kriss pin                                         :mettre_à_jour:
-**** FINI cavalier
+**** PUBLIÉ cavalier
 *** blog
 **** À_ÉCRIRE [[file:2013/02/20130202_fonction_pour_creer_un_nouveau_billet.org][Fonction pour crÃ©er un nouveau billet]]
 **** À_ÉCRIRE [[file:2013/04/20130421_le_flux_rss_est_dispo.org][Le flux RSS est dispo]]
@@ -487,8 +465,8 @@ de trouver que =zap-up-to-char= existe…
 Sur [[http://rubikitch.com/2015/09/02/zzz-to-char/][rubikitch.com]], sorte de [[http://irreal.org/blog/][irreal.org]], mais en japonais avec beaucoup
 de présentation de thèmes, Rubikitch vient de présenter [[https://github.com/mrkkrp/zzz-to-char][zzz-to-char
 (github)]], un =zap-to-char= à la sauce [[https://github.com/abo-abo/avy][avy (github)]], utilisé par
-=ace-jump=. Dans sa description on peut lire : « which work like
-built-ins zap-to-char and zap-up-to-char ». Et effectivement,
+=ace-jump=. Dans sa description on peut lire : « which work like
+built-ins zap-to-char and zap-up-to-char ». Et effectivement,
 =zap-up-to-char= existe par défaut, mais n’est pas autoloadé. Il est
 caché dans ~misc.el~ (avec =butterfly=). Du coup, soit on modifie le
 fichier pour rajouter un autoload, soit on s’ajoute dans son
@@ -497,90 +475,155 @@ fichier pour rajouter un autoload, soit on s’ajoute dans son
 (require 'misc)
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 #+END_SRC
+**** toggle-indicate-empty-lines
 **** À_ÉCRIRE togetherly
 framapad dans emacs (voir aussi screen avec partage d’écran)
 https://github.com/zk-phi/togetherly
 **** À_ÉCRIRE [[file:2014/06/20140610_rubrique-en-vrac.org][Rubrique-en-Vrac]]                                :mettre_à_jour:
 *** trouvailles
 **** PUBLIÉ Que fait Firefox sur le réseau quand on le démarre et faut-il y remédier ?
-Un état des lieux de pourquoi firefox fait « tant » de requêtes au démarrage : http://aldarone.fr/que-fait-firefox-sur-le-reseau-quand-on-le-demarre-et-faut-il-y-remedier/
+Un état des lieux de pourquoi firefox fait « tant » de requêtes au démarrage : http://aldarone.fr/que-fait-firefox-sur-le-reseau-quand-on-le-demarre-et-faut-il-y-remedier/
 
-En bref : laisser firefox faire son boulot !
-**** PUBLIÉ bloquer les pubs pour charger plus vite ?
+En bref : laisser firefox faire son boulot !
+**** PUBLIÉ bloquer les pubs pour charger plus vite ?
 Via [[http://www.zdnet.fr/actualites/adblockers-et-performances-quels-gains-pour-charger-une-page-web-39824012.htm][zdnet]] : quelqu’un (Raymond) a comparé des bloqueurs de pub d’un point de vue performance (temps de chargement de la page, utilisation CPU et utilisation mémoire). Son vainqueur : [[https://github.com/gorhill/uBlock][µBlock origin]], suivi par Ghostery et [[https://github.com/AdguardTeam/AdguardBrowserExtension][Adguard]]. À noter que Ghostery est propriétaire. D’autres alternatives et autres modules complémentaires, sur [[https://prism-break.org/fr/subcategories/gnu-linux-web-browser-addons/][prism-break.org]].
-**** COMMENCÉ Besoin de se dégourdir les doigts ?
+**** PUBLIÉ Gestion sémantique de version
+Les règles pour les numéros de versions : 
+****** En bref
 
-Parfois on a (j’ai) envie de coder (ou faire coder des étudiants) et
-on ne sait pas quoi faire. Voici une liste non-exhaustive et non
-testée de sites web qui propose des exercices pour apprendre à
-programmer, des challenges pour faire s’affronter des programmes,
-voire pour gagner de l’argent.
+Étant donné un numéro de version MAJEUR.MINEUR.CORRECTIF, il faut incrémenter :
 
-# Fin chapeau
+1. le numéro de version MAJEUR quand il y a des changements rétro-incompatibles,
+2. le numéro de version MINEUR quand il y a des changements rétro-compatibles,
+3. le numéro de version de CORRECTIF quand il y a des corrections d’anomalies rétro-compatibles
 
-En fait, l’idée de l’article est parti de la lecture de ce site :
-http://inventwithpython.com/blog/2012/02/20/i-need-practice-programming-49-ideas-for-game-clones-to-code/.
-Et effectivement, coder des petits jeux, c’est toujours plus sympa que
-faire des cribles d’Ératosthène ou des suites de fibonacci. Mais ça
-prend plus de temps…
+Des libellés supplémentaires peuvent être ajoutés pour les versions de
+pré-livraison et pour des méta-données de construction sous forme
+d'extension du format MAJEURE.MINEURE.CORRECTIF.
 
-Les sites qui permettent d’apprendre à coder sont tout aussi sympa si
-on veut changer de langages, mais bien souvent, ils partent /from
-scratch/ et quand on connaît quelques langages (et même un seul), il
-suffit — bien souvent —  juste de connaître la syntaxe du =if/for/class=
-pour être capable de programmer — les bonnes pratiques, c’est autre
-chose par contre.
+[[http://semver.org/lang/fr/][source : semver.org]]
+**** PUBLIÉ Des programmes de journalistes
+En regardant mes flux avec [[http://tontof.net/kriss/feed/][KrISS feed]], je suis tombé sur un [[http://sebsauvage.net/links/?wCqKzg][lien]] de
+sebsauvage sur [[http://tabula.technology/][Tabula]], un outil open source ([[https://github.com/tabulapdf/tabula/blob/master/LICENSE.md][libre]] ?) pour extraire
+les tableaux des PDF. En regardant sur la page du projet, je vois un
+lien vers
+http://source.mozillaopennews.org/en-US/articles/introducing-tabula/
+qui redirige vers
+https://source.opennews.org/en-US/articles/introducing-tabula/. 
+
+Je regarde donc ce qu’est opennews ; pour les [[https://opennews.org/][citer]] : 
+#+BEGIN_QUOTE
+OpenNews is a joint project of Mozilla and the Knight Foundation that
+supports the growing community of news developers, designers, and data
+reporters helping journalism thrive on the open web.
+#+END_QUOTE
+
+Et sur https://source.opennews.org/en-US/ :
+#+BEGIN_QUOTE
+Source is a Knight-Mozilla OpenNews project
+designed to amplify the impact of journalism code and the community of
+developers, designers, journalists, and editors who make it.
+#+END_QUOTE
+
+Du coup, je fouille un peu [[https://source.opennews.org/][source.opennews.org]] et je vois des outils
+comme tabula (oh ‽) ; [[https://source.opennews.org/en-US/learning/natural-language-processing-made-easier-pipes/][broca]], une bibliothèque python pour faire de la
+nlp ; plein d’outils pour faire des cartes : [[http://leafletjs.com/][leaflet]], [[http://www.macwright.org/englewood.js/][englewood.js]],
+[[http://propublica.github.io/simple-tiles/][simple tiles]], [[http://propublica.github.io/simpler-tiles/][simpler tiles]], [[http://code.minnpost.com/tulip/][tulip]] ; [[http://datanews.github.io/tik-tok/][Tik Tok]] pour faire des lignes de
+temps ; du jquery ; du django ; et moultes autres choses rencensées ici :
+https://source.opennews.org/en-US/code/
+
+Et plus intéressant encore, des billets sur comment ont été faits
+certains articles ou outils. Par exemple : [[https://source.opennews.org/en-US/articles/how-we-made-losing-ground/][comment]] a été fait le site
+[[https://projects.propublica.org/louisiana/]] pour lequel ont été
+mélangées images satellites, données, cartes historiques. Ou alors
+pourquoi quelqu’un a créé un [[https://source.opennews.org/en-US/learning/automating-transparency/][robot twitter]] qui tweete quand une page
+wikipedia a été éditée anonymement par le congrès américain. Qui a été
+forké pour pleins d’autres gouvernements/parlements/… (rien pour la
+[[http://jarib.github.io/anon-history/][France]] pour le moment semble-t-il) dont les tweets
+sont ensuite « repris » par le Washington Post, Global Voices, Wired…
+
+Bref, allez faire un tour sur  https://source.opennews.org/en-US/ !
+
+**** PUBLIÉ Du bon message de commit
+
+Les sept règles d’après [[http://chris.beams.io/posts/git-commit/][Chris Beams]] :
+#+BEGIN_QUOTE
+1. Séparez le sujet du corps par une ligne vide
+2. Limitez le sujet à 50 caractères
+3. Mettez une capitale au sujet
+4. Ne mettez pas de point à la fin du sujet
+5. Utilisez l’impératif dans le sujet
+6. Retournez à la ligne à 72 caractères
+7. Utilisez le corps pour expliquer quoi et pourquoi vs. comment
+#+END_QUOTE
 
 
+Comme il le conseille, allez également jeter un œil au livre [[http://git-scm.com/book/fr/v2][pro git]].
+(Je préfère la version anglaise ; les traductions de certains termes
+techniques — stash, merge… — me troublent quelque peu.)
 
-avant, lire https://sites.google.com/site/steveyegge2/practicing-programming
+Pour [[http://magit.vc/][magit]], voir les variables utilisées dans le buffer d’[[http://magit.vc/manual/magit/Editing-commit-messages.html#index-git_002dcommit_002dsummary_002dmax_002dlength][édition du
+message]] comme =git-commit-summary-max-length= ou =git-commit-fill-column=.
 
-  - http://sixrevisions.com/resources/10-puzzle-websites-to-sharpen-your-programming-skills/
-plus ou moins « pratique » 
+**** PUBLIÉ Comment faire un adblock avec =bind= et =apache=
+ http://charlieharvey.org.uk/page/adblocking_with_bind_apache
 
-permet de gagner de l’argent :
-- http://www.topcoder.com/
-- https://www.hackerearth.com/
-- https://www.codeeval.com/
-- https://www.kaggle.com/
+**** PUBLIÉ Faire des GIFs à partir de vidéos en python
+Pour cela, Zulko utilise [[https://github.com/Zulko/moviepy][MoviePy (github)]] — en même temps, c’est de
+lui :þ. Il montre comment faire convertir des bouts de vidéos,
+recadrer, figer une partie de l’image, ajouter du texte… [[http://tontof.net/?2015/07/24/11/43/30-blender-la-solution-pour-le-montage-video][Tontof]] en
+avait déjà subrepticement parlé ; il va falloir que je regarde ça de
+plus près.
+http://zulko.github.io/blog/2014/01/23/making-animated-gifs-from-video-files-with-python/
 
-refactoring :
-- https://codility.com/programmers/
+**** PUBLIÉ Votre navigateur est
+Un site qui détecte le navigateur, l’os, la résolution d’écran, si
+java ou flash sont installés, si on est connecté sur
+facebook/twitter/google/… : http://yourbrowser.is/
+**** PUBLIÉ Couleurs de pokémon
+Pour les fans de pocket monsters, voici un site qui affiche les
+couleurs de chaque pokémon : http://pokepalettes.com/. La galerie (via
+le lien en bas à droite, pas très visible) : http://imgur.com/a/lHVGx
 
-match :
-- http://fightcodegame.com/
+Via [[http://www.waxy.org/links/archive/2015/08/index.shtml#082396][waxy.org]].
+**** PUBLIÉ HTML6
+Voilà une info qui m’avait jusqu’à présent échappé : HTML6 (et CSS4)
+sont en route ! (Heureusement que d’autres personnes font de la
+meilleure veille que moi…).
+Quelques liens pour commencer :
+- https://lists.w3.org/Archives/Public/public-whatwg-archive/2015Mar/0071.html
+- http://www.devbattles.com/en/sand/post-937-W3C+member+proposes+singlepage+apps+without+JavaScript+in+HTML6
+- https://solutionscurved.wordpress.com/2015/07/14/html6-deeper-look/
 
-idées de jeux
-- 
+(Merci P.B.)
+**** orgzly 
+Orgzly: Notes & To-Do Lists
 
+https://play.google.com/store/apps/details?id=com.orgzly&hl=en
 
-exercices
-- https://www.codingame.com/start
-- http://exercism.io/
-- http://codeforces.com/
-- http://rosalind.info/problems/locations/ (bioinfo)
-- https://www.hackerrank.com/
-- http://www.codechef.com/
-- http://programmingpraxis.com/
-- http://codecombat.com/
-- http://www.spoj.com/
-- https://projecteuler.net/
-- https://www.hackerearth.com/problems/
-- https://www.codechef.com/problems/easy
-- http://codegolf.stackexchange.com/questions -> faire s’affronter son programme
-- http://coderbyte.com/CodingArea/Challenges/
-- http://codewars.com/
-- https://www.codingame.com/games
-- https://www.reddit.com/r/dailyprogrammer
-python koan
-- failli oublier https://www.newbiecontest.org/
+http://www.orgzly.com/help/#Source
+**** lettres en fractales
+http://www.standardabweichung.de/design/projekte/html5/design-font-fractalism
+via http://www.metafilter.com/153570/My-God-its-full-of-letters
+**** spyrographe
+http://wheelof.com/sketch/ via
+http://www.waxy.org/links/archive/2015/08/index.shtml#082404
+
+voir sur les shaarli, il y en a un autre qqpart…
+**** autotetris-mode
+https://github.com/skeeto/autotetris-mode
+
+**** Synthèse vocale
+https://tuxicoman.jesuislibre.net/2015/05/synthese-vocale-sous-linux.html
+https://github.com/Celebio/congratulator/blob/master/callandspeak.py
+
 *** mémo
 **** PUBLIÉ [[file:2013/05/20130519_encoder_avec_mencoder.org][Encoder avec mencoder]]                             :mettre_à_jour:
 **** PUBLIÉ [[file:2014/07/20140728_quelques_notes_soapui.org][Quelques notes SoapUI]]                             :mettre_à_jour:
 **** PUBLIÉ Python Module of the Week
 Note pour moi-même.
 
-Les modules des « module python de la semaine » : https://pymotw.com/2/contents.html
+Les modules des « module python de la semaine » : https://pymotw.com/2/contents.html
 
 Par ordre alphabétique : https://pymotw.com/2/py-modindex.html
 
@@ -589,6 +632,110 @@ module python avec des exemples de codes. Les sources sont disponibles
 sur [[http://bitbucket.org/dhellmann/pymotw/][bitbucket]].
 
 Pour python 3 : https://pymotw.com/3/
+**** COMMENCÉ Besoin de se dégourdir les doigts ?             :mettre_à_jour:
+# voir https://github.com/leereilly/games
+# voir comm'
+Parfois on a (j’ai) envie de coder (ou faire coder des étudiants) et
+on ne sait pas quoi faire — ou alors on veut s’entrainer, tester de
+nouvelles choses. Voici une liste non-exhaustive de sites web — non
+testés pour la plupart — qui proposent des exercices pour apprendre à
+programmer, des défis pour faire s’affronter des programmes, voire
+pour gagner de l’argent (mais ce n’est pas le sujet).
+
+# Fin chapeau
+
+
+En fait, l’idée de l’article est parti de la lecture de ce site :
+http://inventwithpython.com/blog/2012/02/20/i-need-practice-programming-49-ideas-for-game-clones-to-code/.
+Et effectivement, coder des petits jeux, c’est toujours plus sympa que
+faire des cribles d’Ératosthène ou des suites de fibonacci. Mais ça
+prend plus de temps… (Je mets quand même certains sites comme
+projecteuler, parce que je crois que j’ai commencé par lui, et qu’il
+est quand même relativement connu — me semble-t-il.)
+
+Les sites qui permettent d’apprendre à coder sont tout aussi sympa si
+on veut changer de langages, mais bien souvent, ils partent /from
+scratch/ et quand on connaît quelques langages (et même un seul), il
+suffit — bien souvent — juste de connaître la syntaxe du =if/for/class=
+pour être capable de programmer. (Les bonnes pratiques, c’est autre
+chose par contre.)
+ 
+J’ai essayé de regrouper par thème. N’hésitez pas à rajouter des
+sites.
+
+  - des exercices ou challenges, avec parfois la solution des autres,
+    une fois qu’on a réussi :
+    - https://www.newbiecontest.org/ : des challenges de
+      programmation, de hacking…, le langage que l’on veut. Vaut le détour.
+    - https://projecteuler.net/ : exercices assez théoriques, le
+      langage que l’on veut.
+    - http://codegolf.stackexchange.com/ : le langage que l’on veut,
+      mais souvent le code le plus court gagne. On découvre alors des
+      langages comme Pyth, CJam…
+    - http://codewars.com/ : limité à CoffeeScript, JavaScript,
+      Python, Ruby, Java, Clojure, Haskell et C#
+    - https://www.reddit.com/r/dailyprogrammer : voir aussi
+      https://www.reddit.com/r/dailyprogrammer/wiki/index#wiki_other_subreddits
+    - Non testés, mais dans mes liens :
+    - https://www.codingame.com/start
+    - http://exercism.io/
+    - http://codeforces.com/
+    - http://rosalind.info/problems/locations/
+    - https://www.hackerrank.com/
+    - http://www.codechef.com/
+    - http://programmingpraxis.com/
+    - http://www.spoj.com/
+    - https://www.hackerearth.com/problems/
+    - https://www.codechef.com/problems/easy
+    - http://coderbyte.com/CodingArea/Challenges/
+    - https://www.codingame.com/games
+  
+  - affronter d’autres programmes :
+    - http://codegolf.stackexchange.com/questions/tagged/king-of-the-hill (souvent n’importe quel langage)
+    - http://fightcodegame.com/ (javascript)
+    - http://www.hacker.org/
+    - https://robotgame.net/ (python)
+    - http://leekwars.com/ (langage propre au jeu)
+    - http://scalatron.github.io/ (scala)
+    - http://www.battlecode.org/ (MIT, java/scala)
+    - https://schemaverse.com/ (PL/pgSQL)
+    - http://vindinium.org/ (n’importe quel langage)
+    - http://game-ai.gatech.edu/ (python)
+    - http://robocode.sourceforge.net/ (.NET, java. Attention,
+      [[http://arstechnica.com/information-technology/2015/05/sourceforge-grabs-gimp-for-windows-account-wraps-installer-in-bundle-pushing-adware/][sourceforge]]. Merci [[http://fredtantini.free.fr/blog/index.php?article28/besoin-de-se-degourdir-les-doigts#c1442916180-1][Mathieu]].)
+    - http://codecombat.com/
+    - http://aisandbox.com/home
+    - voir également https://www.reddit.com/r/gameai/
+  
+  - spécifiques à un langage :
+    - http://www.pythonchallenge.com/
+    - http://rubyquiz.com/
+    - http://www.gowrikumar.com/c/index.php
+    - https://sites.google.com/site/prologsite/prolog-problems
+    - https://bitbucket.org/gregmalcolm/python_koans et autres
+      [langage] koans
+  
+  - refactoring/code review :
+    - http://codereview.stackexchange.com/
+    - https://codility.com/programmers/
+  
+  - idées de jeux/le programme d’autres personnes à refaire dans un
+    autre langage :
+    - http://www.ioccc.org/ : International Obfuscated C Code Contest
+      (des grands malades)
+    - http://js13kgames.com/ : des jeux en 13 kilobytes
+    - http://js1k.com/ : en 1024 bytes
+    - http://ludumdare.com/compo/
+    
+  - permet de gagner de l’argent/des prix :
+    - http://www.topcoder.com/
+    - https://www.hackerearth.com/
+    - https://www.codeeval.com/
+    - https://www.kaggle.com/
+    - http://www.azspcs.net/
+    - https://code.google.com/codejam 
+  
+
 *** non classé
 **** À_ÉCRIRE TODO envoyer fichiers port056
 voir les .org dispos + faire sur cft?
@@ -599,13 +746,113 @@ voir les .org dispos + faire sur cft?
 *** Cheatsheet
 **** PUBLIÉ emacs
 ***** TODO info à mettre à jour (lien(s) fichier(s) source)
-*** liste projets
+*** À_ÉCRIRE Mathématiques
+Curiosités mathématiques.
+**** paradoxes
+***** anniversaire
+***** http://www.wikiwand.com/fr/Paradoxe_des_jumeaux
+***** http://www.wikiwand.com/fr/Paradoxe_du_train
+***** http://www.wikiwand.com/fr/Paradoxe_de_Russell (l'ensemble des ensembles n'appartenant pas à eux-mêmes appartient-il à lui-même ?)
+
+**** Problème de Monty Hall (2 chèvres, 1 voiture, 3 portes. 1 porte ouverte -> on change de choix?)
+**** http://cordier-phychi.toile-libre.org/phy/IPB.html
+**** https://sciencetonnante.wordpress.com/2015/08/21/les-fractions-continues/
+**** Courbes pour remplir un carré
+https://sciencetonnante.wordpress.com/2013/04/01/les-courbes-remplissantes-ou-comment-faire-un-coloriage-avec-un-crayon-ponctuel/
+***** peano hilbert 
+http://eljjdx.canalblog.com/archives/2009/07/04/14274036.html
+**** fractales
+https://imgur.com/dZgmPsB
+http://eljjdx.canalblog.com/archives/2015/05/15/32043607.html
+**** cavalier
+https://www.youtube.com/watch?v=pEbAr8mbdks&feature=em-uploademail
+
+***** micmaths
+https://www.youtube.com/watch?v=sqaFNBtLkv8&feature=em-uploademail
+https://www.youtube.com/user/Micmaths
+**** divers
+***** http://world.mathigon.org/
+***** vihart
+***** http://io9.com/tag/sunday-puzzle
+***** http://www.wikiwand.com/fr/Formule_autor%C3%A9f%C3%A9rente_de_Tupper
+***** http://www.wikiwand.com/fr/Formule_autor%C3%A9f%C3%A9rente_de_Tupper
+
+***** https://www.youtube.com/watch?v=sqaFNBtLkv8&feature=em-uploademail
+
+***** http://www.laboiteverte.fr/les-15-types-de-pavages-pentagonaux/
+
+***** https://lejournal.cnrs.fr/billets/des-cristaux-et-des-maths
+
+***** http://www.psmag.com/health-and-behavior/free-will-enigma-machine-code-randomness-actually-exist-89285
+
+***** http://try-and-touch-my-asymptote.tumblr.com/
+
+***** http://eljjdx.canalblog.com/archives/2012/07/08/24632555.html
+
+***** http://www.laboiteverte.fr/des-affiches-mathematiques/
+
+***** https://sciencetonnante.wordpress.com/2013/01/14/le-theoreme-de-godel/
+
+***** http://villemin.gerard.free.fr/ / http://yoda.guillaume.pagesperso-orange.fr/
+
+*** liste projets ?
 *** lab
 **** PUBLIÉ gol
 **** PUBLIÉ kriss pin
-**** EN_ATTENTE cavalier
-     mettre article -> ajouter lien
-*** a propos
+**** PUBLIÉ cavalier
+**** Essais CSS/html
+***** scroll 
+****** scroll CSS/JS
+http://blog.gospodarets.com/css-scroll-snap/
+https://github.com/peachananr/purejs-onepage-scroll
+
+****** parallax
+http://stackoverflow.com/questions/20021846/parallax-scrolling-with-css-only
+http://keithclark.co.uk/articles/pure-css-parallax-websites/
+https://kremalicious.com/showcasing-the-css-parallax-effect-12-creative-usages/
+****** menu (scroll sur la page -> sélection du bon item)
+cf
+http://www.frandroid.com/comment-faire/tutoriaux/311391_les-meilleurs-tutoriels-pour-apprendre-a-maitriser-android
+par exemple
+***** transition
+http://inspiretrends.com/css3-transitions-and-animations-effects-tutorials/
+http://geebart.com/blog/easy-css3-transitions-tutorial
+***** selectors
+http://www.pageresource.com/css3/selectors-tutorial/
+http://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048
+***** showcases
+http://www.w3schools.com/cssref/tryit.asp?filename=trycss3_image_gallery
+http://css3generator.com/
+http://www.mezzoblue.com/zengarden/alldesigns/(http://www.csszengarden.com/)
+http://www.css3.com/
+http://www.css3.info/preview/css3-transitions/
+http://www.divinecss.com/
+http://csselite.com/
+***** a trier
+****** arc-en-ciel 1 ligne de css
+http://codepen.io/Nico_KraZhtest/pen/XbeVzM
+****** portes logiques en css
+http://silon.slaks.net/#gates
+****** timing des animations et transitions en css3
+    http://www.alsacreations.com/tuto/lire/1299-timing-des-animations-et-des-transitions-en-css3.html
+****** animate.css
+http://daneden.github.io/animate.css/
+****** du css 
+(générateurs, filter effects, snippets, demos…) http://www.cssreflex.com/
+****** exemples d'hover en css
+http://tympanus.net/Development/HoverEffectIdeas/
+http://ianlunn.github.io/Hover/
+https://github.com/gudh/ihover/blob/gh-pages/src/ihover.css
+****** fenetre modale
+http://tympanus.net/Development/ModalWindowEffects/
+****** filtres css
+http://iamvdo.me/en/blog/advanced-css-filters
+
+
+
+
+*** Les choses qu’on peut installer chez soi/sur free, à la frama*
+*** À_ÉCRIRE a propos
 - nouvelle organisation
 - nouveaux flux
   - raccourcis pas affichés, trop orientés emacs
@@ -637,3 +884,6 @@ config d'emacs, custom séparé
 ** kdoce
 
 ** recupmem
+** réseau neurone                                                      :labo:
+plein de neurones, 1 clic sur 1 -> propagation de l’info avec atténuation
+** spyrograph                                                          :labo:
