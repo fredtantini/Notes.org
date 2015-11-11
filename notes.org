@@ -157,7 +157,8 @@ avec pomodoro?
 ****** 1 scéance maison par jour pour dépiler flux rss -> ajout de notes à lire
 ****** 1 scéance de lecture des choses notées à partir des «à lire» -> ajout d'autres «à lire»
 * À faire
-** stopmotion
+** stopmotion lego
+
 * TODO À trier plus
 ** Info
 *** emacs                                                                :QL:
@@ -1112,3 +1113,9 @@ print """
 """)
 
 
+
+* 1511012057RUGJM 
+http://www.amazon.fr/Lego-A1304486-Train-Luxe-Duplo/dp/B00B06IQ0E
+89.91 / 99.90
+http://www.amazon.fr/dp/B00SDTZ5EQ/ref=asc_df_B00SDTZ5EQ29813814
+76.28 / 89.90 (pour le moment 84.76)

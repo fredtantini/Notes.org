@@ -596,12 +596,40 @@ Quelques liens pour commencer :
 - https://solutionscurved.wordpress.com/2015/07/14/html6-deeper-look/
 
 (Merci P.B.)
+**** PUBLIÉ Avoir un mot de passe sûr, et s’en souvenir. Merci la poésie.
+L’info a été reprise un [[http://sebsauvage.net/links/?xSuw9w][peu]] [[http://cyrille-borne.com/veille/index.php?article244/pour-2-cette-jeune-fille-vous-creee-un-mot-de-passe-a-toute-epreuve][partout]] (pour ne citer qu’eux, eux-même
+citant rue89/tomsguide), une fille de 11 ans jette les dés pour vous
+créer des mots de passe. Parce que vous ne savez pas jeter de dés vous
+même… 
+
+Pour éviter de payer 2$ et si vous n’avez pas de dés sous la
+main, [[http://correcthorsebatterystaple.net/][des]] [[http://tools.aldarone.fr/password/][sites]] se basant sur une planche de [[http://xkcd.com/936/][xkcd]] vous permettent même
+de créer vous-même votre mot de passe. Et sinon, il y a duckduckgo
+pour [[https://duckduckgo.com/?q%3Droll%2B3d7&t%3Dffab&ia%3Danswer][lancer]] des [[https://duckduckgo.com/?q%3Droll%2Bdice&t%3Dffab&ia%3Danswer][dés]], ou créer une [[https://duckduckgo.com/?q%3Drandom%2Bpassphrase&t%3Dffab&ia%3Danswer][passphrase]]. Ou la [[http://www.commandlinefu.com/commands/view/9146/generate-an-xkcd-936-style-4-word-passphrase-fast][ligne de commmande]].
+
+Parce que oui, ce que dit xkcd, c’est qu’une passphrase, c’est mieux
+qu’un password. Parce que c’est plus long. Par contre, les mots étant
+aléatoires, le mot/phrase de passe n’est pas forcément plus simple à
+se rappeler (et souvent on est limité en taille de mot de passe…).
+
+Et c’est là que des chercheurs proposent une alternative : de vraies
+phrases, voire de la [[http://www.isi.edu/natural-language/mt/memorize-random-60.pdf][poésie (pdf)]], en générant aléatoirement deux
+[[http://www.wikiwand.com/fr/T%C3%A9tram%C3%A8tre][tétramètres]] [[http://www.wikiwand.com/fr/Iambe][iambiques]] qui riment (en Français, ça donne : 2 lignes de
+8 syllabes :þ). Comme c’est généré aléatoirement, ça donne des phrases
+pas terribles, au milieu d’autres plutôt mémorable. Et si on passait
+tous au [[http://www.wikiwand.com/fr/Ha%C3%AFku][haïku]]pass ?
+
+Via [[http://hackaday.com/2015/10/26/a-more-correct-horse-battery-staple/][hackaday.com]].
+
 **** orgzly 
 Orgzly: Notes & To-Do Lists
 
 https://play.google.com/store/apps/details?id=com.orgzly&hl=en
 
 http://www.orgzly.com/help/#Source
+
+https://www.reddit.com/r/emacs/comments/3ql5ga/online_orgmode_editor/
+
 **** lettres en fractales
 http://www.standardabweichung.de/design/projekte/html5/design-font-fractalism
 via http://www.metafilter.com/153570/My-God-its-full-of-letters
@@ -617,6 +645,29 @@ https://github.com/skeeto/autotetris-mode
 https://tuxicoman.jesuislibre.net/2015/05/synthese-vocale-sous-linux.html
 https://github.com/Celebio/congratulator/blob/master/callandspeak.py
 
+**** PUBLIÉ youtube bloqué par le proxy ? Utilisez duckduckgo !
+Vous voulez regarder une vidéo incluse dans une page, mais bloquée par
+votre proxy. Pour cela, récupérez le titre de la vidéo (avec un peu de
+chance, il est affiché dans la page) : regardez le code source de la
+page (‰C-u‰), faites une recherche (‰C-f‰)sur le mot « =youtube= », et récupérer la
+suite de caractères après le =embed=. Ensuite rechercher avec duckduckgo
+le titre de la vidéo, puis ajouter « !v ». Et là, la vidéo s’affiche !
+
+Par exemple, vous trouvez dans le code source de la page le lien
+http://www.youtube.com/embed/iigHeKZw-JQ -> vous cherchez
+https://duckduckgo.com/?q=iigHeKZw-JQ -> puis 
+https://duckduckgo.com/?q="duck+duck+go+vs+google+search"+!v
+
+
+En fait, ddg utilise youtube-nocookie.com et du coup, si vous avez
+l’adresse de la vidéo, vous pouvez juste ajouter =-nocookie=. Sauf que
+montrer ce que sait faire le canard, c’est plus sympa ;þ
+
+**** changing the org-mode ellipsis
+http://endlessparentheses.com/changing-the-org-mode-ellipsis.html
+
+**** magit rebase video
+https://www.youtube.com/watch?v=vQO7F2Q9DwA
 *** mémo
 **** PUBLIÉ [[file:2013/05/20130519_encoder_avec_mencoder.org][Encoder avec mencoder]]                             :mettre_à_jour:
 **** PUBLIÉ [[file:2014/07/20140728_quelques_notes_soapui.org][Quelques notes SoapUI]]                             :mettre_à_jour:
@@ -887,3 +938,24 @@ config d'emacs, custom séparé
 ** réseau neurone                                                      :labo:
 plein de neurones, 1 clic sur 1 -> propagation de l’info avec atténuation
 ** spyrograph                                                          :labo:
+** enchant.js
+http://games.jsdo.it/
+http://jsdo.it/ponzupan/codes?page=2
+http://jsdo.it/ponzupan/QA6s
+http://9leap.net
+http://tmlife.net/programming/javascript/enchant-js-100-tips.html
+
+http://enchantjs.com/live-sample/index.html
+http://users.csc.calpoly.edu/~foaad/enchant/
+
+http://r.jsgames.jp/games/4629/
+http://r.jsgames.jp/games/1770/
+2727
+382
+416
+3633
+
+joinz
+2048
+mario
+ski
