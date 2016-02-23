@@ -96,13 +96,82 @@ partage avec com' / from emacs ?
 ***** WP
 ***** oblog
 **** TODO pluxml à partir d'emacs
-***** TODO 1er temps
+***** DONE 1er temps
 ‰C-c C-e C-b C-s h b‰
 ‰C-b‰ pour n'avoir que le corps de l'article
 ‰C-s‰ pour n’avoir que subtree
 ****** DONE modifier l'export html pour mettre dans un buffer seulement
 ***** TODO [#A] 2eme temps
-voir pour faire l'export dans un fichier article xml en renseignant correctement les balises
+voir pour faire l'export dans un fichier article xml en renseignant
+correctement les balises
+
+****** à faire
+
+******* premier temps
+******** création d'un .xml
+********* nommé correctement
+********** publication en brouillon, auteur en dur
+********* construit correctement
+********** DONE choix des catégories
+*********** DONE lecture de categories.xml
+*********** DONE si pas trouvé -> pas de création de catégorie
+*********** DONE transfo de «categorie» en «001»
+********** TODO tags
+*********** -> mise a jour de tag.xml
+******** fichier.org
+********* keywords
+********** TODO AUTHOR: à récupérer dans users.xml
+********** title
+********** date
+********** préfixés par PLX_
+*********** CAT
+*********** TAG
+******* deuxième temps
+******** page statique
+******** si catégorie pas trouvée -> on propose / on ajoute
+******** brouillon = nv mot clé
+****** liens
+http://pluxopolis.net/article10/comprendre-le-nom-des-fichiers-xml-des-articles
+
+http://pluxopolis.net/article12/structure-des-fichiers-xml-des-articles
+création d'une ligne dans tags.xml
+******* nom
+_0001 .002 .001 .201304251142 .premier-article .xml
+
+ - *_* est un caractère optionnel. Il indique que l'article est en attente de validation.
+ - *0001* est l'identifiant de l'article. Il peut aller jusqu'à 9999, donc 9999 articles.
+
+ - 002 contient l'identifiant de la catégorie dans laquelle l'article
+   est classé. Il peut avoir plusieurs identifiants séparés par des
+   virgules (exemple 001,002). Ici l'article est donc classé dans la
+   catégorie 002. Il n'y a pas de limite dans le nombre de catégories
+   possibles, du moment qu'elles sont bien séparées par des virgules.
+   Il est possible d'avoir également la valeur draft qui indique que
+   l'article est un brouillon, ou la valeur home qui indique que
+   l'article est publié dans la catégorie Page d'accueil. Il est donc
+   tout a fait possible d'avoir
+   0001.001,002,draft.001.201304251142.premier-article.xml
+
+ - 001 est l'identifiant de l'utilisateur qui a rédigé l'article.
+ - 201304251142 est la date de publication de l'article. Cela peut
+  être une date future. Cette date est de la forme AAAAMMJJHHMM où:
+   AAAA = année
+   MM = mois
+   JJ = jour
+   HH = heure
+   MM = minute
+ - premier-article est l'url de l'article. On la retrouve dans:
+   http://mondomaine.com/index.php?article1/premier-article
+ - xml est l'extension du fichier.
+
+
+
+
+****** organisation
+- faire un plux local?
+- laisser l’organisation comme elle est?
+- publier sur le site -> publish ou rsync?
+
 ***** TODO Dans Sites, éviter les doublons, possible de faire des dossiers dans plux?
 -> osef, les .org sont justes la base des articles -> oui, garder les dossiers.
 
@@ -240,6 +309,8 @@ une fois terminés
 
 **** CANCELED choisir un beau thème
 Fait à la main
+***** TODO voir theme naxan
+http://demo.pluxopolis.net/index.php?style=navan
 **** TODO créer les dépôts
 **** TODO fusionner l'ancien blog…
 ***** TODO les dossiers avec articles en .org/.org.html?
@@ -413,23 +484,97 @@ choses à tester
 **** PUBLIÉ [[file:2014/07/20140721_difference_entre_eval-after-load_et_add-hook.org][DiffÃ©rence entre =eval-after-load= et =add-hook=]] :mettre_à_jour:
 **** PUBLIÉ [[file:2014/07/20140729_recuperer_les_images_d_une_galerie_en_python.org][RÃ©cupÃ©rer les images dâ€™une galerie en python]]  :mettre_à_jour:
 ***** lien site
-**** À_ÉCRIRE [[file:2013/11/20131123_retenir_plus_facilement_-_ma_version_du_systeme_pao.org][Retenir plus facilement - ma version du systeme PAO]] :mettre_à_jour:
+**** PUBLIÉ [[file:retenir_plus_facilement_-_ma_version_du_systeme_pao.org][Retenir plus facilement - ma version du systeme PAO]]
 **** À_ÉCRIRE importance des commentaires (cf mail)
-
 **** À_ÉCRIRE config pour git/bit
      À_ÉCRIRE ssh-add / script pour copier/coller, avoir les différents mails…
+**** À_ÉCRIRE org-protocol
+
+Pour windows :
+
+Dans le dossier bin d’emacs, j'ai ajouté le fichier =em.cmd=
+contenant :
+#+BEGIN_SRC bat
+@echo off
+"%~dp0emacsclientw.exe" -na "%~dp0runemacs.exe" -c "%1"
+#+END_SRC
+
+Dans le fichier d’initialisation, =init.el= :
+#+BEGIN_SRC elisp
+;; pour emacs client
+(server-start) 
+
+;;; org-protocol
+(add-to-list 'load-path "c:/Users/ftantini/AppData/Roaming/.emacs.d/elpa/org-20150622/")
+(require 'org-protocol)
+
+(setq org-protocol-default-template-key "l")
+(setq org-capture-templates
+ '(("l" "Link" entry (file+olp "C:\\Users\\ftantini\\Documents\\Divers\\orgnotes.org" "Web Links")
+        "* %a\n %?\n %i")))
+#+END_SRC
+
+Si on veut plusieurs bookmarks :
+
+#+BEGIN_SRC elisp
+(setq org-protocol-default-template-key "l")
+(setq org-capture-templates
+ '(("t" "Todo" entry (file+headline "C:\\Users\\ftantini\\Documents\\Divers\\orgnotes.org" "Tasks")
+        "* TODO %?\n  %i\n  %a")
+   ("l" "Link" entry (file+olp "C:\\Users\\ftantini\\Documents\\Divers\\orgnotes.org" "Web Links")
+        "* %a\n %?\n %i")
+   ("j" "Journal" entry (file+datetree "C:\\Users\\ftantini\\Documents\\Divers\\orgnotes.org")
+        "* %?\nEntered on %U\n  %i\n  %a")))
+#+END_SRC
+
+Attention, il a fallu que =Web Links= soit déjà un header du fichier.
+
+Modification du registre :
+#+BEGIN_SRC bat
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\org-protocol]
+"URL Protocol"=""
+@="URL:Org Protocol"
+
+[HKEY_CLASSES_ROOT\org-protocol\shell]
+
+[HKEY_CLASSES_ROOT\org-protocol\shell\open]
+
+[HKEY_CLASSES_ROOT\org-protocol\shell\open\command]
+@="\"c:\\Users\\ftantini\\Progs\\emacs-24.5\\bin\\emacsclientw.exe\" \"%1\""
+
+#+END_SRC
+
+
+#+BEGIN_SRC javascript
+javascript:location.href='org-protocol://org-capture://l/'+encodeURIComponent(location.href)+'/'+encodeURIComponent(document.title)+'/'+encodeURIComponent(window.getSelection());
+#+END_SRC
+Le sous-protocole n’est, pour moi, pas =capture=, mais bien
+=org-capture= (cf ‰C-h v org-protocol-protocol-alist-default‰ pour
+voir les protocoles par défaut).
+
+La première fois que le bookmarklet est lancé, il demande avec quoi
+ouvrir -> =em.cmd=
+
+
+Voir également
+http://sachachua.com/blog/2015/11/capturing-links-quickly-with-emacsclient-org-protocol-and-chrome-shortcut-manager-on-microsoft-windows-8/
+
+
 *** guides
 **** PUBLIÉ [[file:2014/06/20140607_le_demarrage_d_emacs.org][Le dÃ©marrage dâ€™Emacs]]                           :mettre_à_jour:
 
 **** À_ÉCRIRE tuto orgmode
 http://orgmode.org/worg/org-tutorials/#sec-7
 
+**** À_ÉCRIRE enchantjs
 *** snippet
-
 **** À_ÉCRIRE Request-wget
 *** lab
 **** PUBLIÉ kriss pin                                         :mettre_à_jour:
 **** PUBLIÉ cavalier
+**** À_ÉCRIRE enchantjs
 *** blog
 **** À_ÉCRIRE [[file:2013/02/20130202_fonction_pour_creer_un_nouveau_billet.org][Fonction pour crÃ©er un nouveau billet]]
 **** À_ÉCRIRE [[file:2013/04/20130421_le_flux_rss_est_dispo.org][Le flux RSS est dispo]]
@@ -475,11 +620,116 @@ fichier pour rajouter un autoload, soit on s’ajoute dans son
 (require 'misc)
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 #+END_SRC
-**** toggle-indicate-empty-lines
-**** À_ÉCRIRE togetherly
+**** PUBLIÉ Emacs en vrac - 1
+***** buffer-flip, une sorte de alt-tab pour buffer
+Un mode mineur qui permet de faire passer les buffers à la manière
+d'un ‰Alt+Tab‰ : https://github.com/killdash9/buffer-flip.el
+
+Ça utilise key-chord.
+
+(Via http://rubikitch.com/2015/11/19/buffer-flip/)
+***** Python profiling
+Julien Danjou explique comment mesurer et analyser le temps
+d’exécution d’un programme python grâce à [[https://docs.python.org/2/library/profile.html][cProfile]] et [[https://kcachegrind.github.io/html/Home.html][KCacheGrind]].
+
+https://julien.danjou.info/blog/2015/guide-to-python-profiling-cprofile-concrete-case-carbonara
+
+***** Prendre des notes avec PDF-tools
+[[https://github.com/politza/pdf-tools][PDF Tools]] permet de voir des PDF dans un buffer, de faire des
+recherches, suivre un lien, mettre des annotations, et plein d’autres
+choses. Matt Price en parle dans son [[http://matt.hackinghistory.ca/2015/11/11/note-taking-with-pdf-tools/][blog]], et montre comment exporter
+les annotations pour org-mode.
+
+Via http://irreal.org/blog/?p=4727
+
+***** Changer de fenêtres, de façon visuelle
+Une alternative à [[https://github.com/waymondo/ace-jump-buffer][ace-jump]], pour passer d’une fenêtre à l’autre quand
+on fait un ‰C-x o‰ : [[https://github.com/dimitri/switch-window][switch-window]]
+***** Changer les caractères utilisés pour l’ellipse par org-mode
+Artur Malabarba explique que le =...= à la fin des /headlines/ est
+personnalisable grâce à la variable =org-ellipsis=. J'ai donc changé
+=...= par =…=
+
+http://endlessparentheses.com/changing-the-org-mode-ellipsis.html
+
+***** autotetris-mode
+Emacs permet de jouer à tetris avec ‰M-x tetris‰. [[https://github.com/skeeto/autotetris-mode][autotetris-mode]]
+permet de faire jouer une IA.
+
+***** Indiquer la fin du buffer
+La variable =toggle-indicate-empty-lines= permet de mettre dans la
+marge un symbole pour indiquer la fin du fichier. Voir aussi [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Fringe-Bitmaps.html#Fringe-Bitmaps][Fringe-Bitmaps (emacs lisp manual)]]
+**** PUBLIÉ Emacs en vrac - 2
+***** Montrer les raccourcis non terminés plus tôt, et leurs suites possibles
+
+En mettant la variable =echo-keystrokes= à 0.1 (source :
+[[http://endlessparentheses.com/faster-keystroke-echo.html][endlessparentheses]]), les raccourcis non terminés (‰C-x r‰ par exemple)
+s’affichent plus tôt.
+
+Dans un autre genre, mais toujours pour les raccourcis
+[[https://github.com/justbur/emacs-which-key][which-key]] est un mode mineur qui permet d’afficher les suites
+possibles à un raccourci, tout comme [[https://github.com/kai2nenobu/guide-key][guide-key]].
+
+***** Questionnaire avec org-mode
+[[http://sachachua.com/blog/2015/11/org-mode-tables-fill-quizzes-latin-verb-conjugation-drills-emacs/][Sacha Chua]] apprend le latin et a codé un questionnaire plutôt sympa. À
+mettre en relation avec =[[http://orgmode.org/worg/org-contrib/org-drill.html][org-drill]]=.
+
+***** Marquer seulement une partie d’un mot
+Si on veut [[http://fredtantini.free.fr/blog/index.php?article13/un-peu-de-typographie-et-marquer-les-raccorcus-clavier-dans-org-mode][marquer]] un mot avec org-mode (par exemple pour une =mise en
+*gras*=), on est obligé de marquer le mot en entier. Une solution de
+contournement est d’[[http://emacs.stackexchange.com/questions/18499/mark-up-only-part-of-a-word][insérer une espace de largeur zéro en unicode]].
+
+***** highlight-tail
+Inutile, mais fun, [[http://www.emacswiki.org/emacs/highlight-tail.el][highlight-tail]] est un mode qui change la couleur de
+fond des dernières lettres tapées pour donner [[http://storage9.static.itmages.com/i/15/1201/h_1449009755_8397773_fcc8e3944e.png][ça]]. 
+
+**** À_ÉCRIRE Emacs en vrac - 3
+
+***** search non-ascii characters
+http://endlessparentheses.com/new-in-emacs-25-1-easily-search-non-ascii-characters.html
+***** git timemachine
+https://github.com/pidu/git-timemachine
+***** focus mode
+seul le paragraphe qui a le focus est coloré https://github.com/larstvei/Focus
+***** diff hl
+https://www.reddit.com/r/emacs/comments/3z8f35/highlight_diffs_on_the_fly_with_diffhlflydiffmode/
+***** epydoc snippets
+http://tiborsimko.org/emacs-epydoc-snippets.html
+***** keyboard macro
+https://github.com/howardabrams/pdx-emacs-hackers/blob/master/workshops/keyboard-macros.org
+***** emacs-fireplace
+ A cozy fireplace for emacs. 
+https://github.com/johanvts/emacs-fireplace
+***** starwars crawl
+http://mbork.pl/2015-12-18_Star_Wars_crawl_in_Emacs
+***** Simple Emacs-based Subtitle Editor
+http://mihai.bazon.net/projects/sese
+***** skewer-mode
+https://github.com/skeeto/skewer-mode
+comme jsfiddle/codepen
+http://emacs.stackexchange.com/questions/2376/how-to-use-skewer-mode
+***** kurecolor
+https://github.com/emacsfodder/kurecolor/
+***** tdd save-hook
+http://endlessparentheses.com/test-driven-development-in-cider-and-emacs.html?source=rss
+***** togetherly
 framapad dans emacs (voir aussi screen avec partage d’écran)
 https://github.com/zk-phi/togetherly
-**** À_ÉCRIRE [[file:2014/06/20140610_rubrique-en-vrac.org][Rubrique-en-Vrac]]                                :mettre_à_jour:
+***** À_ÉCRIRE aide contextuelle dans org-mode
+ http://kitchingroup.cheme.cmu.edu/blog/2015/11/24/Contextual-help-in-org-mode/
+***** À_ÉCRIRE orgzly 
+ Orgzly: Notes & To-Do Lists
+
+ https://play.google.com/store/apps/details?id=com.orgzly&hl=en
+
+ http://www.orgzly.com/help/#Source
+
+ https://www.reddit.com/r/emacs/comments/3ql5ga/online_orgmode_editor/
+
+***** À_ÉCRIRE magit rebase video
+ https://www.youtube.com/watch?v=vQO7F2Q9DwA
+
+***** À_ÉCRIRE [[file:2014/06/20140610_rubrique-en-vrac.org][Rubrique-en-Vrac]]                               :mettre_à_jour:
 *** trouvailles
 **** PUBLIÉ Que fait Firefox sur le réseau quand on le démarre et faut-il y remédier ?
 Un état des lieux de pourquoi firefox fait « tant » de requêtes au démarrage : http://aldarone.fr/que-fait-firefox-sur-le-reseau-quand-on-le-demarre-et-faut-il-y-remedier/
@@ -621,30 +871,6 @@ tous au [[http://www.wikiwand.com/fr/Ha%C3%AFku][haïku]]pass ?
 
 Via [[http://hackaday.com/2015/10/26/a-more-correct-horse-battery-staple/][hackaday.com]].
 
-**** orgzly 
-Orgzly: Notes & To-Do Lists
-
-https://play.google.com/store/apps/details?id=com.orgzly&hl=en
-
-http://www.orgzly.com/help/#Source
-
-https://www.reddit.com/r/emacs/comments/3ql5ga/online_orgmode_editor/
-
-**** lettres en fractales
-http://www.standardabweichung.de/design/projekte/html5/design-font-fractalism
-via http://www.metafilter.com/153570/My-God-its-full-of-letters
-**** spyrographe
-http://wheelof.com/sketch/ via
-http://www.waxy.org/links/archive/2015/08/index.shtml#082404
-
-voir sur les shaarli, il y en a un autre qqpart…
-**** autotetris-mode
-https://github.com/skeeto/autotetris-mode
-
-**** Synthèse vocale
-https://tuxicoman.jesuislibre.net/2015/05/synthese-vocale-sous-linux.html
-https://github.com/Celebio/congratulator/blob/master/callandspeak.py
-
 **** PUBLIÉ youtube bloqué par le proxy ? Utilisez duckduckgo !
 Vous voulez regarder une vidéo incluse dans une page, mais bloquée par
 votre proxy. Pour cela, récupérez le titre de la vidéo (avec un peu de
@@ -663,11 +889,117 @@ En fait, ddg utilise youtube-nocookie.com et du coup, si vous avez
 l’adresse de la vidéo, vous pouvez juste ajouter =-nocookie=. Sauf que
 montrer ce que sait faire le canard, c’est plus sympa ;þ
 
-**** changing the org-mode ellipsis
-http://endlessparentheses.com/changing-the-org-mode-ellipsis.html
+**** Lorem Ipsum pour les images                                        :web:
+Quand on développe un site, pour travailler la mise en page, on
+utilise un faux-texte, le fameux /Lorem Ipsum/. Mais pour les images ?
 
-**** magit rebase video
-https://www.youtube.com/watch?v=vQO7F2Q9DwA
+J’étais en train de jouer un peu avec les transitions en css, quand je
+me suis dit que ce serait bien d’avoir des images. Un coup de
+[[https://duckduckgo.com/?q=lorem+ipsum+image&t=ffsb][duckduckgo]] plus tard, et me voilà avec deux sites plutôt sympa pour
+générer des images :
+
+- http://lorempixel.com/ propose plusieurs catégories d’images — issues
+  de flickr en CC BY-SA — que l’on peut paramétrer selon la taille, la
+  catégorie, couleur ou N&B, et l’ajout de texte :
+#+BEGIN_SRC html
+<img src="http://lorempixel.com/g/400/200/nature/3/Mon texte" />
+#+END_SRC
+  affichera la 3^e image de la catégorie nature en 400×200 noir et
+  blanc (le /g/) avec le texte « Mon texte » :
+#+BEGIN_HTML
+<img src="http://lorempixel.com/g/400/200/nature/3/Mon texte" />
+#+END_HTML
+
+#+BEGIN_SRC html
+<img src="http://lorempixel.com/400/200/" />
+#+END_SRC
+  affichera une image de 400×200 en couleur de n’importe quelle catégorie :
+#+BEGIN_HTML
+<img src="http://lorempixel.com/400/200/" />
+#+END_HTML
+
+- le second, http://dummyimage.com/, propose des images plus simples,
+  et qui correspondent mieux à des besoins de tests d’agencement : du
+  texte sur un fond uni. On peut là aussi régler plusieurs choses : la
+  taille, la couleur du texte et du fond, le format de l’image…
+  Certaines tailles sont prédéfinies : fullbanner, button1, svga,
+  ntsc, /etc./
+
+#+BEGIN_SRC html
+<img src="http://dummyimage.com/300" />
+#+END_SRC
+  affichera l’image :
+#+BEGIN_HTML
+<img src="http://dummyimage.com/300" />
+#+END_HTML
+Le texte par défaut, c’est la taille de l’image.
+#+BEGIN_SRC html
+<img src="http://dummyimage.com/rectangle/bd954f/ffffff.png&text=Mon+texte" />
+#+END_SRC
+  affichera l’image au format png de 180×150 :
+#+BEGIN_HTML
+<img src="http://dummyimage.com/rectangle/bd954f/ffffff.png&text=Mon+texte" />
+#+END_HTML
+
+Il y en a bien entendu plein d’autres, mais ceux-ci me conviennent parfaitement.
+
+**** Tester son courrier électronique avec des auto-répondeurs
+http://www.bortzmeyer.org/repondeurs-courrier-test.html
+**** sweetalert :emacs:
+Pour remplacer les alerts des navigateurs par quelque chose de plus
+mieux beau : http://t4t5.github.io/sweetalert/
+**** big-list-of-naughty-strings
+https://github.com/minimaxir/big-list-of-naughty-strings/blob/master/blns.txt
+**** À_ÉCRIRE templates pages web
+- http://html5up.net/ Full responsive, html5+css3, customisable, licence
+cc-by
+
+- http://www.os-templates.com/free-website-templates
+
+- http://www.templatemo.com/page/1
+
+- http://www.templatesdock.com/free-web-templates.php
+
+
+
+Via http://cyrille-borne.com/article2141/html5-up
+**** À_ÉCRIRE script
+https://roidelapluie.be/blog/2015/07/04/script/
+**** À_ÉCRIRE lettres en fractales
+http://www.standardabweichung.de/design/projekte/html5/design-font-fractalism
+via http://www.metafilter.com/153570/My-God-its-full-of-letters
+**** À_ÉCRIRE spyrographe
+http://wheelof.com/sketch/ via
+http://www.waxy.org/links/archive/2015/08/index.shtml#082404
+
+voir sur les shaarli, il y en a un autre qqpart…
+**** À_ÉCRIRE diffy
+https://github.com/twitter/diffy
+What is Diffy?
+
+Diffy finds potential bugs in your service using running instances of
+your new code and your old code side by side. Diffy behaves as a proxy
+and multicasts whatever requests it receives to each of the running
+instances. It then compares the responses, and reports any regressions
+that may surface from those comparisons. The premise for Diffy is that
+if two implementations of the service return “similar” responses for a
+sufficiently large and diverse set of requests, then the two
+implementations can be treated as equivalent and the newer
+implementation is regression-free.
+**** À_ÉCRIRE ngram
+***** ngram google
+http://www.wired.com/2015/11/google-open-sources-its-artificial-intelligence-engine
+***** tensorflow
+TensorFlow is an Open Source Software Library for Machine Intelligence
+http://tensorflow.org/
+
+***** ngram reddit
+http://projects.fivethirtyeight.com/reddit-ngram/?keyword=lebron.rodgers.trout&start=20071015&end=20150831&smoothing=10
+
+**** À_ÉCRIRE Synthèse vocale
+https://tuxicoman.jesuislibre.net/2015/05/synthese-vocale-sous-linux.html
+https://github.com/Celebio/congratulator/blob/master/callandspeak.py
+
 *** mémo
 **** PUBLIÉ [[file:2013/05/20130519_encoder_avec_mencoder.org][Encoder avec mencoder]]                             :mettre_à_jour:
 **** PUBLIÉ [[file:2014/07/20140728_quelques_notes_soapui.org][Quelques notes SoapUI]]                             :mettre_à_jour:
@@ -683,7 +1015,7 @@ module python avec des exemples de codes. Les sources sont disponibles
 sur [[http://bitbucket.org/dhellmann/pymotw/][bitbucket]].
 
 Pour python 3 : https://pymotw.com/3/
-**** COMMENCÉ Besoin de se dégourdir les doigts ?             :mettre_à_jour:
+**** PUBLIÉ Besoin de se dégourdir les doigts ?               :mettre_à_jour:
 # voir https://github.com/leereilly/games
 # voir comm'
 Parfois on a (j’ai) envie de coder (ou faire coder des étudiants) et
@@ -791,67 +1123,22 @@ sites.
 **** À_ÉCRIRE TODO envoyer fichiers port056
 voir les .org dispos + faire sur cft?
 **** À_ÉCRIRE squash/soap/travail
-
 *** Snippets
+**** À_ÉCRIRE TIL
+ https://github.com/jbranchaud/til
+
 ** Statiques
 *** Cheatsheet
 **** PUBLIÉ emacs
 ***** TODO info à mettre à jour (lien(s) fichier(s) source)
-*** À_ÉCRIRE Mathématiques
-Curiosités mathématiques.
-**** paradoxes
-***** anniversaire
-***** http://www.wikiwand.com/fr/Paradoxe_des_jumeaux
-***** http://www.wikiwand.com/fr/Paradoxe_du_train
-***** http://www.wikiwand.com/fr/Paradoxe_de_Russell (l'ensemble des ensembles n'appartenant pas à eux-mêmes appartient-il à lui-même ?)
-
-**** Problème de Monty Hall (2 chèvres, 1 voiture, 3 portes. 1 porte ouverte -> on change de choix?)
-**** http://cordier-phychi.toile-libre.org/phy/IPB.html
-**** https://sciencetonnante.wordpress.com/2015/08/21/les-fractions-continues/
-**** Courbes pour remplir un carré
-https://sciencetonnante.wordpress.com/2013/04/01/les-courbes-remplissantes-ou-comment-faire-un-coloriage-avec-un-crayon-ponctuel/
-***** peano hilbert 
-http://eljjdx.canalblog.com/archives/2009/07/04/14274036.html
-**** fractales
-https://imgur.com/dZgmPsB
-http://eljjdx.canalblog.com/archives/2015/05/15/32043607.html
-**** cavalier
-https://www.youtube.com/watch?v=pEbAr8mbdks&feature=em-uploademail
-
-***** micmaths
-https://www.youtube.com/watch?v=sqaFNBtLkv8&feature=em-uploademail
-https://www.youtube.com/user/Micmaths
-**** divers
-***** http://world.mathigon.org/
-***** vihart
-***** http://io9.com/tag/sunday-puzzle
-***** http://www.wikiwand.com/fr/Formule_autor%C3%A9f%C3%A9rente_de_Tupper
-***** http://www.wikiwand.com/fr/Formule_autor%C3%A9f%C3%A9rente_de_Tupper
-
-***** https://www.youtube.com/watch?v=sqaFNBtLkv8&feature=em-uploademail
-
-***** http://www.laboiteverte.fr/les-15-types-de-pavages-pentagonaux/
-
-***** https://lejournal.cnrs.fr/billets/des-cristaux-et-des-maths
-
-***** http://www.psmag.com/health-and-behavior/free-will-enigma-machine-code-randomness-actually-exist-89285
-
-***** http://try-and-touch-my-asymptote.tumblr.com/
-
-***** http://eljjdx.canalblog.com/archives/2012/07/08/24632555.html
-
-***** http://www.laboiteverte.fr/des-affiches-mathematiques/
-
-***** https://sciencetonnante.wordpress.com/2013/01/14/le-theoreme-de-godel/
-
-***** http://villemin.gerard.free.fr/ / http://yoda.guillaume.pagesperso-orange.fr/
-
+*** À_ÉCRIRE TIL
+[[file:notes.org::*TIL][cf notes.org]]
 *** liste projets ?
 *** lab
 **** PUBLIÉ gol
 **** PUBLIÉ kriss pin
 **** PUBLIÉ cavalier
-**** Essais CSS/html
+**** À_ÉCRIRE Essais CSS/html
 ***** scroll 
 ****** scroll CSS/JS
 http://blog.gospodarets.com/css-scroll-snap/
@@ -871,6 +1158,7 @@ http://geebart.com/blog/easy-css3-transitions-tutorial
 ***** selectors
 http://www.pageresource.com/css3/selectors-tutorial/
 http://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048
+http://code.tutsplus.com/fr/tutorials/the-30-css-selectors-you-must-memorize--net-16048
 ***** showcases
 http://www.w3schools.com/cssref/tryit.asp?filename=trycss3_image_gallery
 http://css3generator.com/
@@ -879,6 +1167,7 @@ http://www.css3.com/
 http://www.css3.info/preview/css3-transitions/
 http://www.divinecss.com/
 http://csselite.com/
+http://code.tutsplus.com/series/css3-mastery--net-18126
 ***** a trier
 ****** arc-en-ciel 1 ligne de css
 http://codepen.io/Nico_KraZhtest/pen/XbeVzM
@@ -898,11 +1187,7 @@ https://github.com/gudh/ihover/blob/gh-pages/src/ihover.css
 http://tympanus.net/Development/ModalWindowEffects/
 ****** filtres css
 http://iamvdo.me/en/blog/advanced-css-filters
-
-
-
-
-*** Les choses qu’on peut installer chez soi/sur free, à la frama*
+*** À_ÉCRIRE Les choses qu’on peut installer chez soi/sur free, à la frama*
 *** À_ÉCRIRE a propos
 - nouvelle organisation
 - nouveaux flux
@@ -938,24 +1223,41 @@ config d'emacs, custom séparé
 ** réseau neurone                                                      :labo:
 plein de neurones, 1 clic sur 1 -> propagation de l’info avec atténuation
 ** spyrograph                                                          :labo:
-** enchant.js
+** COMMENCÉ enchant.js
 http://games.jsdo.it/
 http://jsdo.it/ponzupan/codes?page=2
 http://jsdo.it/ponzupan/QA6s
 http://9leap.net
 http://tmlife.net/programming/javascript/enchant-js-100-tips.html
+http://www32.atwiki.jp/nakamura001/pages/149.html
+
+http://coderdojodenver.tumblr.com/post/108389130394/javascript-browser-games
+http://mkonar.org/edu/games/enchantjs/fundamentals/
+
 
 http://enchantjs.com/live-sample/index.html
 http://users.csc.calpoly.edu/~foaad/enchant/
 
-http://r.jsgames.jp/games/4629/
-http://r.jsgames.jp/games/1770/
-2727
-382
-416
-3633
+http://r.jsgames.jp/games/4629/ mariolike
+http://r.jsgames.jp/games/1770/ physique/incredible time machine
+http://r.jsgames.jp/games/2727/ saute et ne peut bouger gch/dte qu'en l'air 
+http://r.jsgames.jp/games/382/ vite choisir la plateforme de la bonne couleur
+http://r.jsgames.jp/games/416/ a la crepuscud
+
 
 joinz
 2048
 mario
 ski
+http://www.twinpedia.com/kadokado#les_jeux
+*** sprite
+http://www.spriters-resource.com/game_boy_advance/cars/
+http://www.ideaxidea.com/archives/2011/04/enchant_rgb_undocumented.html
+http://www.ideaxidea.com/archives/2011/04/rpg_2.html
+http://www.ideaxidea.com/archives/2011/04/rpg_3.html
+http://www.ideaxidea.com/archives/2011/04/rpg_4.html
+http://oredon.kidukilab.com/blog/2014/04/enchantjs-tilemap.php
+** koalastothemax
+http://www.koalastothemax.com/
+** pixels figthing
+http://pixelsfighting.com/
