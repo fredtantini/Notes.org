@@ -568,7 +568,7 @@ http://sachachua.com/blog/2015/11/capturing-links-quickly-with-emacsclient-org-p
 **** À_ÉCRIRE tuto orgmode
 http://orgmode.org/worg/org-tutorials/#sec-7
 
-**** À_ÉCRIRE enchantjs
+**** À_ÉCRIRE [#A] enchantjs
 *** snippet
 **** À_ÉCRIRE Request-wget
 *** lab
@@ -580,7 +580,9 @@ http://orgmode.org/worg/org-tutorials/#sec-7
 **** À_ÉCRIRE [[file:2013/04/20130421_le_flux_rss_est_dispo.org][Le flux RSS est dispo]]
 **** À_ÉCRIRE nouvelle organisation/GTD
 ***** nouveau blog toussa
-lien vers  [[file:2012/11/20121110_config-org-publish-project-alist.org][Ma config d'org-mode pour la publication de ce site.]]
+***** ANNULÉ lien vers  [[file:2012/11/20121110_config-org-publish-project-alist.org][Ma config d'org-mode pour la publication de ce site.]]
+      CLOSED: [2016-02-25 jeu. 14:59]
+**** COMMENCÉ [#A] org-plux
 *** projets
 **** À_ÉCRIRE recupKDOCE                                             :projet:
 **** À_ÉCRIRE recupMem                                               :projet:

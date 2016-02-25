@@ -5,8 +5,13 @@
 /var/www/html/own_data/fred/files/Plux : miroir blog −> export depuis emacs
 ~/Data/Donnees/Sites/fredtantini : site -> creation nouveau post depuis emacs
 ~/Data/Donnees/Sites/fredtantini/blog : lien vers /var/www/html/own_data/fred/files/Plux
+** depots/ssh
+*** DONE ssh-add
+*** git config local
+*** dupliquer vers github
 
 * faire le ménage
+
 ** TODO anciens fichiers .org
 *** supprimer redondance
 *** déplacer si doit être dans autre .org
