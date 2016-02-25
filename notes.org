@@ -1,3 +1,11 @@
+* organisation pc
+~/Data/gitDepots : dossier ou lien vers emplacement
+
+/var/www/html/own_data/ : dossier data owncloud
+/var/www/html/own_data/fred/files/Plux : miroir blog −> export depuis emacs
+~/Data/Donnees/Sites/fredtantini : site -> creation nouveau post depuis emacs
+~/Data/Donnees/Sites/fredtantini/blog : lien vers /var/www/html/own_data/fred/files/Plux
+
 * faire le ménage
 ** TODO anciens fichiers .org
 *** supprimer redondance
@@ -156,6 +164,10 @@ avec pomodoro?
 ***** veille
 ****** 1 scéance maison par jour pour dépiler flux rss -> ajout de notes à lire
 ****** 1 scéance de lecture des choses notées à partir des «à lire» -> ajout d'autres «à lire»
+** ssh
+- https://confluence.atlassian.com/bitbucket/configure-multiple-ssh-identities-for-gitbash-mac-osx-linux-271943168.html
+- http://www.robotgoblin.co.uk/blog/2012/07/24/managing-multiple-ssh-keys/
+
 * À faire
 ** stopmotion lego
 
@@ -1114,8 +1126,5 @@ print """
 
 
 
-* 1511012057RUGJM 
-http://www.amazon.fr/Lego-A1304486-Train-Luxe-Duplo/dp/B00B06IQ0E
-89.91 / 99.90
-http://www.amazon.fr/dp/B00SDTZ5EQ/ref=asc_df_B00SDTZ5EQ29813814
-76.28 / 89.90 (pour le moment 84.76)
+
+

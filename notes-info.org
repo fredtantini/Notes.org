@@ -2,7 +2,7 @@
 #+TODO: À_ÉCRIRE(à) COMMENCÉ(o) EN_ATTENTE(e@) FINI(f) | ANNULÉ(a) PUBLIÉ(p)
 
 * Ce fichier
-blog et projet
+blog et projets
 ** TODO Merger depuis les différents fichiers notes 
 ** TODO Réflexions
 *** Ce fichier
