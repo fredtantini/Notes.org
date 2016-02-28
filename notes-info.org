@@ -561,7 +561,6 @@ ouvrir -> =em.cmd=
 Voir également
 http://sachachua.com/blog/2015/11/capturing-links-quickly-with-emacsclient-org-protocol-and-chrome-shortcut-manager-on-microsoft-windows-8/
 
-
 *** guides
 **** PUBLIÉ [[file:2014/06/20140607_le_demarrage_d_emacs.org][Le dÃ©marrage dâ€™Emacs]]                           :mettre_à_jour:
 
@@ -686,13 +685,20 @@ Inutile, mais fun, [[http://www.emacswiki.org/emacs/highlight-tail.el][highlight
 fond des dernières lettres tapées pour donner [[http://storage9.static.itmages.com/i/15/1201/h_1449009755_8397773_fcc8e3944e.png][ça]]. 
 
 **** À_ÉCRIRE Emacs en vrac - 3
-
+***** Vertical lines in org-mode table export
+https://www.reddit.com/r/emacs/comments/481amv/vertical_lines_in_orgmode_table_export/
+***** shorty : interactive shortcut demos in emacs
+http://thescratchcastle.com/posts/interactive-shortcut-demos-in-emacs.html
+***** how to add upstream with magit
+https://www.reddit.com/r/emacs/comments/47o615/how_to_add_upstream_with_magit/
+***** Adding captions and attributes to figures and tables from code blocks in org-mode
+http://kitchingroup.cheme.cmu.edu/blog/2016/02/26/Adding-captions-and-attributes-to-figures-and-tables-from-code-blocks-in-org-mode/
 ***** search non-ascii characters
 http://endlessparentheses.com/new-in-emacs-25-1-easily-search-non-ascii-characters.html
 ***** git timemachine
 https://github.com/pidu/git-timemachine
 ***** focus mode
-seul le paragraphe qui a le focus est coloré https://github.com/larstvei/Focus
+Seul le paragraphe qui a le focus est coloré https://github.com/larstvei/Focus
 ***** diff hl
 https://www.reddit.com/r/emacs/comments/3z8f35/highlight_diffs_on_the_fly_with_diffhlflydiffmode/
 ***** epydoc snippets
@@ -717,9 +723,9 @@ http://endlessparentheses.com/test-driven-development-in-cider-and-emacs.html?so
 ***** togetherly
 framapad dans emacs (voir aussi screen avec partage d’écran)
 https://github.com/zk-phi/togetherly
-***** À_ÉCRIRE aide contextuelle dans org-mode
+***** aide contextuelle dans org-mode
  http://kitchingroup.cheme.cmu.edu/blog/2015/11/24/Contextual-help-in-org-mode/
-***** À_ÉCRIRE orgzly 
+***** orgzly 
  Orgzly: Notes & To-Do Lists
 
  https://play.google.com/store/apps/details?id=com.orgzly&hl=en
@@ -728,10 +734,10 @@ https://github.com/zk-phi/togetherly
 
  https://www.reddit.com/r/emacs/comments/3ql5ga/online_orgmode_editor/
 
-***** À_ÉCRIRE magit rebase video
+***** magit rebase video
  https://www.youtube.com/watch?v=vQO7F2Q9DwA
 
-***** À_ÉCRIRE [[file:2014/06/20140610_rubrique-en-vrac.org][Rubrique-en-Vrac]]                               :mettre_à_jour:
+**** À_ÉCRIRE [[file:2014/06/20140610_rubrique-en-vrac.org][Rubrique-en-Vrac]]                                :mettre_à_jour:
 *** trouvailles
 **** PUBLIÉ Que fait Firefox sur le réseau quand on le démarre et faut-il y remédier ?
 Un état des lieux de pourquoi firefox fait « tant » de requêtes au démarrage : http://aldarone.fr/que-fait-firefox-sur-le-reseau-quand-on-le-demarre-et-faut-il-y-remedier/
@@ -891,7 +897,7 @@ En fait, ddg utilise youtube-nocookie.com et du coup, si vous avez
 l’adresse de la vidéo, vous pouvez juste ajouter =-nocookie=. Sauf que
 montrer ce que sait faire le canard, c’est plus sympa ;þ
 
-**** Lorem Ipsum pour les images                                        :web:
+**** PUBLIÉ Lorem Ipsum pour les images                                 :web:
 Quand on développe un site, pour travailler la mise en page, on
 utilise un faux-texte, le fameux /Lorem Ipsum/. Mais pour les images ?
 
@@ -945,9 +951,24 @@ Le texte par défaut, c’est la taille de l’image.
 
 Il y en a bien entendu plein d’autres, mais ceux-ci me conviennent parfaitement.
 
+**** PUBLIÉ Des graphes à la xkcd                         :python:matplotlib:
+Utiliser python pour faire des graphes à la [[http://xkcd.com][xkcd]], c’est possible grâce
+aux développeurs de [[http://matplotlib.org/xkcd/examples/showcase/xkcd.html][matplotlib]] ! Stéphane Blondon nous en parle sur
+son [[https://ascendances.wordpress.com/2016/02/26/des-graphiques-a-la-xkcd/][blog]] avec quelle police utiliser et dans quel paquet Debian elle
+se trouve.
+
+**** PUBLIÉ Bouge une allumette pour former un carré                 :puzzle:
+     CLOSED: [2016-02-28 dim. 17:13]
+Vous connaissez sûrement l’énigme suivante : « comment former quatre
+triangles équilatéraux avec six allumettes ? » Si vous aimez ce genre
+de « puzzles », allez faire un tour sur
+http://matchstickpuzzles.blogspot.fr/, vous aurez plus de 300
+devinettes pour vous divertir…
+
+Via [[http://www.metafilter.com/157489/Matchstick-Puzzles][MeFi]].
 **** Tester son courrier électronique avec des auto-répondeurs
 http://www.bortzmeyer.org/repondeurs-courrier-test.html
-**** sweetalert :emacs:
+**** sweetalert :web:css:
 Pour remplacer les alerts des navigateurs par quelque chose de plus
 mieux beau : http://t4t5.github.io/sweetalert/
 **** big-list-of-naughty-strings
@@ -1120,7 +1141,6 @@ sites.
     - http://www.azspcs.net/
     - https://code.google.com/codejam 
   
-
 *** non classé
 **** À_ÉCRIRE TODO envoyer fichiers port056
 voir les .org dispos + faire sur cft?
