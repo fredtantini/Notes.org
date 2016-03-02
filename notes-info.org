@@ -488,79 +488,6 @@ choses à tester
 **** À_ÉCRIRE importance des commentaires (cf mail)
 **** À_ÉCRIRE config pour git/bit
      À_ÉCRIRE ssh-add / script pour copier/coller, avoir les différents mails…
-**** À_ÉCRIRE org-protocol
-
-Pour windows :
-
-Dans le dossier bin d’emacs, j'ai ajouté le fichier =em.cmd=
-contenant :
-#+BEGIN_SRC bat
-@echo off
-"%~dp0emacsclientw.exe" -na "%~dp0runemacs.exe" -c "%1"
-#+END_SRC
-
-Dans le fichier d’initialisation, =init.el= :
-#+BEGIN_SRC elisp
-;; pour emacs client
-(server-start) 
-
-;;; org-protocol
-(add-to-list 'load-path "c:/Users/ftantini/AppData/Roaming/.emacs.d/elpa/org-20150622/")
-(require 'org-protocol)
-
-(setq org-protocol-default-template-key "l")
-(setq org-capture-templates
- '(("l" "Link" entry (file+olp "C:\\Users\\ftantini\\Documents\\Divers\\orgnotes.org" "Web Links")
-        "* %a\n %?\n %i")))
-#+END_SRC
-
-Si on veut plusieurs bookmarks :
-
-#+BEGIN_SRC elisp
-(setq org-protocol-default-template-key "l")
-(setq org-capture-templates
- '(("t" "Todo" entry (file+headline "C:\\Users\\ftantini\\Documents\\Divers\\orgnotes.org" "Tasks")
-        "* TODO %?\n  %i\n  %a")
-   ("l" "Link" entry (file+olp "C:\\Users\\ftantini\\Documents\\Divers\\orgnotes.org" "Web Links")
-        "* %a\n %?\n %i")
-   ("j" "Journal" entry (file+datetree "C:\\Users\\ftantini\\Documents\\Divers\\orgnotes.org")
-        "* %?\nEntered on %U\n  %i\n  %a")))
-#+END_SRC
-
-Attention, il a fallu que =Web Links= soit déjà un header du fichier.
-
-Modification du registre :
-#+BEGIN_SRC bat
-REGEDIT4
-
-[HKEY_CLASSES_ROOT\org-protocol]
-"URL Protocol"=""
-@="URL:Org Protocol"
-
-[HKEY_CLASSES_ROOT\org-protocol\shell]
-
-[HKEY_CLASSES_ROOT\org-protocol\shell\open]
-
-[HKEY_CLASSES_ROOT\org-protocol\shell\open\command]
-@="\"c:\\Users\\ftantini\\Progs\\emacs-24.5\\bin\\emacsclientw.exe\" \"%1\""
-
-#+END_SRC
-
-
-#+BEGIN_SRC javascript
-javascript:location.href='org-protocol://org-capture://l/'+encodeURIComponent(location.href)+'/'+encodeURIComponent(document.title)+'/'+encodeURIComponent(window.getSelection());
-#+END_SRC
-Le sous-protocole n’est, pour moi, pas =capture=, mais bien
-=org-capture= (cf ‰C-h v org-protocol-protocol-alist-default‰ pour
-voir les protocoles par défaut).
-
-La première fois que le bookmarklet est lancé, il demande avec quoi
-ouvrir -> =em.cmd=
-
-
-Voir également
-http://sachachua.com/blog/2015/11/capturing-links-quickly-with-emacsclient-org-protocol-and-chrome-shortcut-manager-on-microsoft-windows-8/
-
 *** guides
 **** PUBLIÉ [[file:2014/06/20140607_le_demarrage_d_emacs.org][Le dÃ©marrage dâ€™Emacs]]                           :mettre_à_jour:
 
@@ -582,6 +509,7 @@ http://orgmode.org/worg/org-tutorials/#sec-7
 ***** ANNULÉ lien vers  [[file:2012/11/20121110_config-org-publish-project-alist.org][Ma config d'org-mode pour la publication de ce site.]]
       CLOSED: [2016-02-25 jeu. 14:59]
 **** COMMENCÉ [#A] org-plux
+
 *** projets
 **** À_ÉCRIRE recupKDOCE                                             :projet:
 **** À_ÉCRIRE recupMem                                               :projet:
@@ -738,6 +666,23 @@ https://github.com/zk-phi/togetherly
  https://www.youtube.com/watch?v=vQO7F2Q9DwA
 
 **** À_ÉCRIRE [[file:2014/06/20140610_rubrique-en-vrac.org][Rubrique-en-Vrac]]                                :mettre_à_jour:
+**** PUBLIÉ Ajouter des curseurs multiples avec Ace Jump      :emacs:ace:avy:
+     CLOSED: [2016-03-02 mer. 16:57]
+  Pour ceux qui utilisent à la fois [[https://github.com/magnars/multiple-cursors.el][multiple-cursors.el]] et [[https://github.com/winterTTr/ace-jump-mode][ace-jump]],
+  [[https://github.com/mm--/ace-mc][ace-mc]] permet d’ajouter (et d’enlever) des curseurs à la manière
+  d’ace-jump. Ça se base sur ace-jump, et peut-être que ce sera adapté
+  à [[https://github.com/abo-abo/avy][avy]] qui a un peu plus le vent en poupe.
+
+  Dans la même veine, [[https://github.com/waymondo/ace-jump-zap][ace-jump-zap]] permet de faire un =zap-to-char=
+  (‰C-h k M-z‰) sans besoin de compter jusqu’à la combientième lettre
+  on veut killer (avec avy : [[https://github.com/cute-jumper/avy-zap][avy-zap]]).
+
+  D’autres commandes plus ou moins utiles ont été implémentées à la
+  sauce =ace-jump/avy=, notamment par [[http://cute-jumper.github.io/][Junpeng Qiu]], [[https://github.com/abo-abo/avy][Oleh Krehel (abo-abo)]] et
+  d’autres encore : [[https://github.com/cute-jumper/ace-flyspell][ace-flyspell]], [[https://github.com/cute-jumper/ace-jump-helm-line][ace-jump-helm-line]], [[https://github.com/abo-abo/ace-link][ace-link]]…
+
+  Source : [[https://www.reddit.com/r/emacs/comments/48afx9/add_multiple_cursors_using_ace_jump/][Add Multiple Cursors using Ace Jump : emacs (r/emacs)]]
+
 *** trouvailles
 **** PUBLIÉ Que fait Firefox sur le réseau quand on le démarre et faut-il y remédier ?
 Un état des lieux de pourquoi firefox fait « tant » de requêtes au démarrage : http://aldarone.fr/que-fait-firefox-sur-le-reseau-quand-on-le-demarre-et-faut-il-y-remedier/
@@ -966,12 +911,12 @@ http://matchstickpuzzles.blogspot.fr/, vous aurez plus de 300
 devinettes pour vous divertir…
 
 Via [[http://www.metafilter.com/157489/Matchstick-Puzzles][MeFi]].
-**** Tester son courrier électronique avec des auto-répondeurs
+**** À_ÉCRIRE Tester son courrier électronique avec des auto-répondeurs
 http://www.bortzmeyer.org/repondeurs-courrier-test.html
-**** sweetalert :web:css:
+**** À_ÉCRIRE sweetalert                                            :web:css:
 Pour remplacer les alerts des navigateurs par quelque chose de plus
 mieux beau : http://t4t5.github.io/sweetalert/
-**** big-list-of-naughty-strings
+**** À_ÉCRIRE big-list-of-naughty-strings
 https://github.com/minimaxir/big-list-of-naughty-strings/blob/master/blns.txt
 **** À_ÉCRIRE templates pages web
 - http://html5up.net/ Full responsive, html5+css3, customisable, licence
@@ -1022,8 +967,13 @@ http://projects.fivethirtyeight.com/reddit-ngram/?keyword=lebron.rodgers.trout&s
 **** À_ÉCRIRE Synthèse vocale
 https://tuxicoman.jesuislibre.net/2015/05/synthese-vocale-sous-linux.html
 https://github.com/Celebio/congratulator/blob/master/callandspeak.py
-
-*** mémo
+**** PUBLIÉ Static site generators                                      :web:
+     CLOSED: [2016-03-02 mer. 16:57]
+ 
+  Une comparaison de générateurs de quelques sites statiques, selon
+  les besoin de [[http://www.enricozini.org/blog/2016/static-site-generators/][Enrico Zini]] : Hugo, Nikola, Pelican, Ikiwiki,
+  siterefactor et staticsite.
+*** memos
 **** PUBLIÉ [[file:2013/05/20130519_encoder_avec_mencoder.org][Encoder avec mencoder]]                             :mettre_à_jour:
 **** PUBLIÉ [[file:2014/07/20140728_quelques_notes_soapui.org][Quelques notes SoapUI]]                             :mettre_à_jour:
 **** PUBLIÉ Python Module of the Week
@@ -1141,6 +1091,196 @@ sites.
     - http://www.azspcs.net/
     - https://code.google.com/codejam 
   
+**** COMMENCÉ org-protocol                                    :emacs:orgmode:
+J’avais déjà vu passer l’info, sur [[http://irreal.org/blog/?p=2895][irreal.org]] puis chez [[http://sachachua.com/blog/2015/11/capturing-links-quickly-with-emacsclient-org-protocol-and-chrome-shortcut-manager-on-microsoft-windows-8/][Sacha Chua]], et
+ailleurs encore, et à chaque fois, je m’étais dit, faut que je m’y
+mette. C'est chose faite depuis quelques temps. [[http://orgmode.org/worg/org-contrib/org-protocol.html][org-protocol]] permet
+d’utiliser [[http://orgmode.org/manual/Capture.html][org-capture]] depuis firefox, chrome, acrobat reader, /etc./
+
+Ce qui m’intéresse, c’est d’utiliser les bookmarklets de firefox, et
+plus particulièrement les [[https://support.mozilla.org/fr/kb/comment-rechercher-site-barre-adresse][mots-clés]] des marque-pages : je tape dans la
+barre d’adresse =ot=, =or= ou =on=, et ça me rajoute une note au bon
+endroit dans le bon fichier org-mode.
+
+Je note ici comment j’ai fait. Selon que vous utilisiez windows, ou
+GNU/Linux, c’est légèrement différent.
+***** Pour windows :
+Dans le dossier =bin= d’emacs, j'ai ajouté le fichier =em.cmd=
+contenant :
+#+BEGIN_SRC bat
+@echo off
+"%~dp0emacsclientw.exe" -na "%~dp0runemacs.exe" -c "%1"
+#+END_SRC
+
+Dans le fichier d’initialisation, =init.el=, il faut :
+#+BEGIN_SRC elisp
+;; pour emacs client
+(server-start) 
+
+;;; où se situe org-protocol
+(add-to-list 'load-path "c:/Users/ftantini/AppData/Roaming/.emacs.d/elpa/org-20150622/")
+(require 'org-protocol)
+
+;;; un template
+(setq org-protocol-default-template-key "l")
+(setq org-capture-templates
+ '(("l" "Link" entry (file+olp "C:\\Users\\ftantini\\Documents\\Divers\\orgnotes.org" "Web Links")
+        "* %a\n %?\n %i")))
+#+END_SRC
+
+Si on veut plusieurs bookmarks :
+
+#+BEGIN_SRC elisp
+(setq org-protocol-default-template-key "l")
+(setq org-capture-templates
+ '(("t" "Todo" entry (file+headline "C:\\Users\\ftantini\\Documents\\Divers\\orgnotes.org" "Tasks")
+        "* TODO %?\n  %i\n  %a")
+   ("l" "Link" entry (file+olp "C:\\Users\\ftantini\\Documents\\Divers\\orgnotes.org" "Web Links")
+        "* %a\n %?\n %i")
+   ("j" "Journal" entry (file+datetree "C:\\Users\\ftantini\\Documents\\Divers\\orgnotes.org")
+        "* %?\nEntered on %U\n  %i\n  %a")))
+#+END_SRC
+
+Attention, il a fallu que =Web Links= soit déjà un header du fichier.
+
+Enfin, il faut également modifier le registre :
+#+BEGIN_SRC bat
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\org-protocol]
+"URL Protocol"=""
+@="URL:Org Protocol"
+
+[HKEY_CLASSES_ROOT\org-protocol\shell]
+
+[HKEY_CLASSES_ROOT\org-protocol\shell\open]
+
+[HKEY_CLASSES_ROOT\org-protocol\shell\open\command]
+@="\"c:\\Users\\ftantini\\Progs\\emacs-24.5\\bin\\emacsclientw.exe\" \"%1\""
+#+END_SRC
+
+Côté firefox, on ajoute le bookmarklet suivant :
+#+BEGIN_SRC javascript
+javascript:location.href='org-protocol://org-capture://l/'+encodeURIComponent(location.href)+'/'+encodeURIComponent(document.title)+'/'+encodeURIComponent(window.getSelection());
+#+END_SRC
+où le =l= qui suit =org-capture= correspond au template qu’on veut
+utiliser. 
+
+Le sous-protocole n’est, pour moi, pas =capture=, mais bien
+=org-capture= (trouvé grâce à ‰C-h v org-protocol-protocol-alist-default‰ pour
+voir les protocoles par défaut).
+
+La première fois que le bookmarklet est lancé, il demande avec quoi
+ouvrir, on renseigne =em.cmd=.
+
+***** Pour linux :
+C’est très clair ici :
+http://tech.memoryimprintstudio.com/org-capture-from-external-applications/,
+les solutions 2, et 3 ont marché pour moi, je vous laisse aller voir
+et je recopie ce qui marche pour moi (le plugin ne permet d’utiliser
+qu’un template) :
+
+- Enregistrer un fichier =org-protocol.desktop=
+dans =~/.local/share/applications= avec :
+
+#+BEGIN_SRC sh
+[Desktop Entry]
+Name=org-protocol
+Exec=emacsclient %u
+Type=Application
+Terminal=false
+Categories=System;
+MimeType=x-scheme-handler/org-protocol;
+#+END_SRC	
+- Ajouter dans =~/.local/share/applications/mimeapps.list=
+#+BEGIN_SRC sh
+[Added Associations]
+x-scheme-handler/org-protocol=org-protocol.desktop
+#+END_SRC
+
+puis mettre à jour :
+#+BEGIN_SRC sh
+update-desktop-database ~/.local/share/applications/
+#+END_SRC
+(le paquet pour debian est =desktop-file-utils=)
+
+Côté Emacs, dans le fichier d’initialisation, =init.el=, on ajoute (si ce n’est
+pas déjà présent) :
+#+BEGIN_SRC elisp
+;; pour emacs client
+(server-start) 
+
+;;; org-protocol
+(require 'org-protocol)
+
+(setq org-protocol-default-template-key "l")
+(setq org-capture-templates
+ '(("l" "Link"                entry (file+headline "/home/fred/Data/Donnees/Org/Notes/orgnotes.org" "trouvailles")
+        "* %a\n %?\n %i")))
+#+END_SRC
+
+Et si on veut plusieurs bookmarks :
+
+#+BEGIN_SRC elisp
+(setq org-protocol-default-template-key "l")
+(setq org-capture-templates
+ '(("t" "Todo" entry (file+headline "/home/fred/Data/Donnees/Org/Notes/orgnotes.org" "Tasks")
+        "* TODO %?\n  %i\n  %a")
+   ("l" "Link" entry (file+olp "/home/fred/Data/Donnees/Org/Notes/orgnotes.org" "Web Links")
+        "* %a\n %?\n %i")
+   ("j" "Journal" entry (file+datetree "/home/fred/Data/Donnees/Org/Notes/orgnotes.org")
+        "* %?\nEntered on %U\n  %i\n  %a")))
+#+END_SRC
+
+Comme pour windows, le header (Tasks, Web Links) doit déjà être présent.
+
+Le bookmarklet qui va bien à ajouter dans firefox :
+#+BEGIN_SRC javascript
+javascript:location.href='org-protocol://capture://l/'+encodeURIComponent(location.href)+'/'+encodeURIComponent(document.title)+'/'+encodeURIComponent(window.getSelection());
+#+END_SRC
+où le =l= qui suit =org-capture= correspond au template qu’on veut
+utiliser. 
+
+Par contre, cette fois le sous-protocole est bien =capture=, et pas
+=org-capture=, et je n’ai pas chercher à comprendre pourquoi…
+(=org-protocol-protocol-alist-default= est pourtant le même.)
+
+Pour tester, on peut, en ligne de commande, lancer 
+#+BEGIN_SRC sh
+emacsclient org-protocol://capture://x/toto/tata/titi
+#+END_SRC
+si ça ne marche pas correctement, par exemple, si le buffer s’ouvre
+avec comme nom le dernier argument (ici titi), c’est sûrement un souci
+de sous-protocole.
+
+***** Mes templates
+Voilà les trois templates qui sont chez moi associés à un bookmarklet :
+#+BEGIN_SRC elisp
+(setq org-capture-templates
+      '(("t" "notes-info/travail"
+               entry (file+headline "/home/fred/Data/Donnees/Org/Notes/notes-info.org" "trouvailles")
+               "** COMMENCÉ %:description\n%i\n%?\nSource : %a\n\n" :immediate-finish)
+        ("r" "notes-info/raccourcis"
+               entry (file+headline "/home/fred/Data/Donnees/Org/Notes/notes-info.org" "raccourcis")
+               "** COMMENCÉ %:description\n%i\n%?\nSource : %a\n\n" :immediate-finish)
+        ("l" "notes/à lire"
+               entry (file+headline "/home/fred/Data/Donnees/Org/Notes/notes.org" "à lire")
+;              "* %^{Title}\n\n  Source: %u, %c\n\n  %i"))))
+               "** %a\n%i\n%?\n\n" :immediate-finish)
+        ))
+                                        ;%:description : titre de la page
+                                        ;%i : sélection de la page web
+                                        ;%? : curseur pour continuer de remplir la note
+                                        ;%a : [[lien][titre de la page]]
+#+END_SRC
+
+Je rappelle les liens de l’intro : chez [[http://sachachua.com/blog/2015/11/capturing-links-quickly-with-emacsclient-org-protocol-and-chrome-shortcut-manager-on-microsoft-windows-8/][Sacha Chua]], qui explique
+comment elle a fait pour chrome, et le site d’orgmode, en particulier,
+les templates : http://orgmode.org/manual/Capture-templates.html pour
+avoir d’autres variables (=%T=, =%k=, =%^{Title}=, =%^C=… sur
+Template-expansion), et la page de départ :
+http://orgmode.org/worg/org-contrib/org-protocol.html.
+
 *** non classé
 **** À_ÉCRIRE TODO envoyer fichiers port056
 voir les .org dispos + faire sur cft?
@@ -1213,7 +1353,8 @@ http://iamvdo.me/en/blog/advanced-css-filters
 *** À_ÉCRIRE a propos
 - nouvelle organisation
 - nouveaux flux
-  - raccourcis pas affichés, trop orientés emacs
+  - raccourcis pas affichés, trop orienté
+
 * TODO Site
 ** index/racine
 *** reprendre l’a propos du blog
@@ -1283,3 +1424,5 @@ http://oredon.kidukilab.com/blog/2014/04/enchantjs-tilemap.php
 http://www.koalastothemax.com/
 ** pixels figthing
 http://pixelsfighting.com/
+** clock/rgb                                                           :labo:
+http://www.clock.tissin.com/
