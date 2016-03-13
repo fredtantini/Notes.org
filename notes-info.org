@@ -973,6 +973,14 @@ https://github.com/Celebio/congratulator/blob/master/callandspeak.py
   Une comparaison de générateurs de quelques sites statiques, selon
   les besoin de [[http://www.enricozini.org/blog/2016/static-site-generators/][Enrico Zini]] : Hugo, Nikola, Pelican, Ikiwiki,
   siterefactor et staticsite.
+**** COMMENCÉ Iterograph - An iterative drawing tool
+   An iterative drawing tool created by tortue from
+   laboiteatortue.com. 
+http://iterograph.laboiteatortue.com/#/graph/laboite
+  
+  Source : [[http://iterograph.laboiteatortue.com/#/][Iterograph - An iterative drawing tool]]
+
+  Via : [[https://www.reddit.com/r/InternetIsBeautiful/comments/48s1z9/iterograph_an_iterative_drawing_tool_by_fellow/][/r/InternetIsBeautiful/]]
 *** memos
 **** PUBLIÉ [[file:2013/05/20130519_encoder_avec_mencoder.org][Encoder avec mencoder]]                             :mettre_à_jour:
 **** PUBLIÉ [[file:2014/07/20140728_quelques_notes_soapui.org][Quelques notes SoapUI]]                             :mettre_à_jour:
@@ -1186,7 +1194,7 @@ dans =~/.local/share/applications= avec :
 #+BEGIN_SRC sh
 [Desktop Entry]
 Name=org-protocol
-Exec=emacsclient %u
+Exec=emacsclient -c %u
 Type=Application
 Terminal=false
 Categories=System;

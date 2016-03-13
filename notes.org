@@ -63,6 +63,9 @@ Dans Sites, éviter les doublons, possible de faire des dossiers dans plux?
 **** He Named Me Malala
 **** liste doc imgur
 ** À lire
+*** [[https://d3js.org/][D3.js - Data-Driven Documents]]
+
+ https://github.com/mbostock/d3/wiki/Tutorials
 
 * À utiliser
 une fois acquis déplacer/noter dans articles
